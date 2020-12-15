@@ -23,6 +23,8 @@
     "@babel/preset-env": "^7.12.10",
     "@babel/preset-react": "^7.12.10",
     "babel-loader": "^8.2.2",
+    "csv-parser": "^3.0.0",
+    "csv-writer": "^1.6.0",
     "webpack": "^4.41.5",
     "webpack-cli": "^3.3.10"
   }
