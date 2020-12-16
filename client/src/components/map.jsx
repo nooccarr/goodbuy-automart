@@ -2,8 +2,6 @@ import React from 'react';
 import GoogleMapReact from 'google-map-react';
 import { MAP_API } from '../../utils/googleConfig.js';
 
-const Car = ({ text }) => <div>{text}</div>;
-
 class Map extends React.Component {
   constructor(props) {
     super(props);
@@ -24,9 +22,16 @@ class Map extends React.Component {
           {cars.map((car, idx) => {
             return (
               <Car
+                style={{
+                  position: 'absolute',
+                  transform: 'translate(-50%, -50%)'}}
                 lat={car.latitude}
                 lng={car.longitude}
-                text="My Marker"
+                text={<img
+                  src="./car.png"
+                  width="25px"
+                  height="25px"
+                />}
                 key={idx}
               />
             );
@@ -36,5 +41,7 @@ class Map extends React.Component {
     )
   }
 };
+
+const Car = ({ text }) => <div>{text}</div>;
 
 export default Map;
