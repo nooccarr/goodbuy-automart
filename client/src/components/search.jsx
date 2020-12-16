@@ -41,19 +41,20 @@ class Search extends React.Component {
 
   handleSearchButton() {
     let address = parseAddress(this.state.address);
-    return axios
-      .get('https://maps.googleapis.com/maps/api/geocode/json', {
-        params: {
-          address: address,
-          key: API_KEY
-        }
-      })
-      .then(({ data }) => {
-        let coordinates = data.results[0].geometry.location;
-        let { lat, lng } = coordinates;
-        this.props.getCarList(lat, lng, this.state.manufacturer, this.state.mileageMin, this.state.mileageMax);
-      })
-      .catch(err => console.log(err));
+    // return axios
+    //   .get('https://maps.googleapis.com/maps/api/geocode/json', {
+    //     params: {
+    //       address: address,
+    //       key: API_KEY
+    //     }
+    //   })
+    //   .then(({ data }) => {
+    //     let coordinates = data.results[0].geometry.location;
+    //     let { lat, lng } = coordinates;
+    //     this.props.getCarList(this.state.manufacturer, lat, lng, this.state.mileageMin, this.state.mileageMax);
+    //   })
+    //   .catch(err => console.log(err));
+    this.props.getCarList(this.state.manufacturer, 40.7474874, -73.752967, this.state.mileageMin, this.state.mileageMax);
   }
 
   render() {
@@ -64,13 +65,15 @@ class Search extends React.Component {
 
     return(
       <div>
-        {console.log(this.state)}
+        {/* {console.log(this.state)} */}
         <h3>Search!</h3>
+        <h4>Address</h4>
         <input
           type="text"
           value={this.state.address}
           onChange={e => this.handleAddressChange(e)}
         />
+        <h4>Manufacturer</h4>
         <select
           name="manufacturers"
           onChange={e => this.handleManufacturersChange(e)}
@@ -84,6 +87,7 @@ class Search extends React.Component {
             </option>);
           })}
         </select>
+        <h4>Mileage</h4>
         <select
           name="mileage"
           onChange={e => this.handleMileagesChange(e)}

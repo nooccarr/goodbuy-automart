@@ -13,13 +13,15 @@ class App extends React.Component {
     this.getCarList = this.getCarList.bind(this);
   }
 
-  getCarList(latitude, longitude, manufacturer, mileageMin, mileageMax) {
+  getCarList(manufacturer, latitude, longitude, mileageMin, mileageMax) {
     return axios
       .get('/cars', {
         params: {
-          latitude: latitude,
-          longitude: longitude,
           manufacturer: manufacturer,
+          latitudeMin: latitude - 0.17, // approx. 12 miles
+          latitudeMax: latitude + 0.17,
+          longitudeMin: longitude - 0.17,
+          longitudeMax: longitude + 0.17,
           mileageMin: mileageMin,
           mileageMax: mileageMax
         }
@@ -35,6 +37,7 @@ class App extends React.Component {
   render() {
     return(
       <React.Fragment>
+        {console.log(this.state)}
         <h1>Used Car Finder</h1>
         <Map />
         <Search

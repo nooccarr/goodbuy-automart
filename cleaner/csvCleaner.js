@@ -21,7 +21,6 @@ const csvStringifier = createCsvStringifier({
     { id: "type", title: "type" },
     { id: "paint_color", title: "paint_color" },
     { id: "image_url", title: "image_url" },
-    { id: "state", title: "state" },
     { id: "lat", title: "latitude" },
     { id: "long", title: "longitude" },
     { id: "posting_date", title: "posting_date" }
@@ -39,7 +38,7 @@ class csvCleaner extends Transform {
 
   _transform(chunk, encoding, next) {
     let chunks = [];
-    const filtered = ['id', 'region', 'region_url', 'url', 'size', 'description'];
+    const filtered = ['id', 'region', 'region_url', 'url', 'size', 'description', 'state'];
     for (let key in chunk) {
       if (filtered.indexOf(key) >= 0) {
         delete chunk[key];
