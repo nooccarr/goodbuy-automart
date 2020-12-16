@@ -18,10 +18,10 @@ class App extends React.Component {
       .get('/cars', {
         params: {
           manufacturer: manufacturer,
-          latitudeMin: latitude - 0.17, // approx. 12 miles
-          latitudeMax: latitude + 0.17,
-          longitudeMin: longitude - 0.17,
-          longitudeMax: longitude + 0.17,
+          latitudeMin: latitude - 1, // approx. 69 miles
+          latitudeMax: latitude + 1,
+          longitudeMin: longitude - 1,
+          longitudeMax: longitude + 1,
           mileageMin: mileageMin,
           mileageMax: mileageMax
         }
@@ -52,7 +52,7 @@ class App extends React.Component {
 export default App;
 
 // TODO:
-// change lat & long min and max to 1?
+// change lat & long min and max to 1? V
 // implement haversine
 // render this.cars if it changes
 // build map component
