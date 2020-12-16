@@ -6,6 +6,11 @@ class Map extends React.Component {
   constructor(props) {
     super(props);
     this.state = {};
+    this.handleCarClick = this.handleCarClick.bind(this);
+  }
+
+  handleCarClick(e) {
+    alert('clicked!');
   }
 
   render() {
@@ -18,6 +23,7 @@ class Map extends React.Component {
           defaultCenter={defaultCenter}
           defaultZoom={zoom}
           center={center}
+          onChildClick={ e => this.handleCarClick(e) }
         >
           {cars.map((car, idx) => {
             return (
