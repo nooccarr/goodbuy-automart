@@ -2,7 +2,8 @@ node_modules
 
 .DS_Store
 
-config.js
+googleConfig.js
+mysqlConfig.js
 
 vehicles.csv
 cleanedVehicles.csv

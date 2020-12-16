@@ -1,6 +1,7 @@
 import React from 'react';
-import Search from './search.jsx';
+import axios from 'axios';
 import Map from './map.jsx';
+import Search from './search.jsx';
 import CarDetails from './carDetails.jsx';
 
 class App extends React.Component {
@@ -9,6 +10,26 @@ class App extends React.Component {
     this.state = {
       cars: []
     };
+    this.getCarList = this.getCarList.bind(this);
+  }
+
+  getCarList(latitude, longitude, manufacturer, mileageMin, mileageMax) {
+    return axios
+      .get('/cars', {
+        params: {
+          latitude: latitude,
+          longitude: longitude,
+          manufacturer: manufacturer,
+          mileageMin: mileageMin,
+          mileageMax: mileageMax
+        }
+      })
+      .then(({ data }) => {
+        this.setState({
+          cars: data
+        });
+      })
+      .catch(err => console.log(err));
   }
 
   render() {
@@ -16,7 +37,9 @@ class App extends React.Component {
       <React.Fragment>
         <h1>Used Car Finder</h1>
         <Map />
-        <Search />
+        <Search
+          getCarList={this.getCarList}
+        />
         <CarDetails />
       </React.Fragment>
     );

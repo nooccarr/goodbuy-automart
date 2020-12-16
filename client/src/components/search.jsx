@@ -2,6 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import parseAddress from '../../utils/parseAddress.js';
 import getMileageMinAndMax from '../../utils/getMileageMinAndMax.js';
+import { API_KEY } from '../../utils/googleConfig.js';
 
 class Search extends React.Component {
   constructor(props) {
@@ -36,15 +37,23 @@ class Search extends React.Component {
       mileageMin: mileageRange.min,
       mileageMax: mileageRange.max
     });
-    return axios
-
   }
 
   handleSearchButton() {
-    let parsedAddress = parseAddress(this.state.address);
-    this.setState({
-      address: parsedAddress
-    });
+    let address = parseAddress(this.state.address);
+    return axios
+      .get('https://maps.googleapis.com/maps/api/geocode/json', {
+        params: {
+          address: address,
+          key: API_KEY
+        }
+      })
+      .then(({ data }) => {
+        let coordinates = data.results[0].geometry.location;
+        let { lat, lng } = coordinates;
+        this.props.getCarList(lat, lng, this.state.manufacturer, this.state.mileageMin, this.state.mileageMax);
+      })
+      .catch(err => console.log(err));
   }
 
   render() {
