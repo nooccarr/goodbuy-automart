@@ -28,7 +28,7 @@ CREATE TABLE cars(
   PRIMARY KEY (id)
 );
 
-// TODO: add index
+-- TODO: add index
 
 LOAD DATA LOCAL INFILE '../data/cleanedVehicles.csv'
 INTO TABLE cars

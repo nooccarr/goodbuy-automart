@@ -41,6 +41,7 @@ class Search extends React.Component {
 
   handleSearchButton() {
     let address = parseAddress(this.state.address);
+    // FIXME:
     // return axios
     //   .get('https://maps.googleapis.com/maps/api/geocode/json', {
     //     params: {

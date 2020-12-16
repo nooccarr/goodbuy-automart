@@ -51,13 +51,19 @@ class App extends React.Component {
 
 export default App;
 
-// TODO: if user clicks search, make GET request to
-// https://maps.googleapis.com/maps/api/geocode/json?address=${address}&key=${key}
-// then make GET request to /cars with body
-// then store data(car list) returned
-// then render this.cars if it changes
+// TODO:
+// change lat & long min and max to 1?
+// implement haversine
+// render this.cars if it changes
+// build map component
+// build car detail component
+// make api calls to mark car locations on the map
+// css
 
-// challenge 1:
-// how to calculate distance between the address and cars
 // challenge 2:
 // how to display cars in this.state
+
+// deploy on heroku
+// create an instance
+// transform: add index to schema.sql
+// load: instance
