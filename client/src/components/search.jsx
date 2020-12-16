@@ -15,23 +15,11 @@ class Search extends React.Component {
       mileageMin: 0,
       mileageMax: 10000
     };
-    this.handleDistanceChange = this.handleDistanceChange.bind(this);
-    this.handleAddressChange = this.handleAddressChange.bind(this);
     this.handleManufacturersChange = this.handleManufacturersChange.bind(this);
     this.handleMileagesChange = this.handleMileagesChange.bind(this);
+    this.handleDistanceChange = this.handleDistanceChange.bind(this);
+    this.handleAddressChange = this.handleAddressChange.bind(this);
     this.handleSearchButton = this.handleSearchButton.bind(this);
-  }
-
-  handleDistanceChange(e) {
-    this.setState({
-      distance: e.target.value
-    });
-  }
-
-  handleAddressChange(e) {
-    this.setState({
-      address: e.target.value
-    });
   }
 
   handleManufacturersChange(e) {
@@ -45,6 +33,18 @@ class Search extends React.Component {
     this.setState({
       mileageMin: mileageRange.min,
       mileageMax: mileageRange.max
+    });
+  }
+
+  handleDistanceChange(e) {
+    this.setState({
+      distance: e.target.value
+    });
+  }
+
+  handleAddressChange(e) {
+    this.setState({
+      address: e.target.value
     });
   }
 
@@ -73,12 +73,38 @@ class Search extends React.Component {
     const manufacturers = [
       'chevrolet', 'bmw', 'ford', 'toyota', 'jeep', 'ram', 'hyundai', 'honda', 'dodge', 'lexus', 'mercedes-benz', 'cadillac', 'gmc', 'subaru', 'infiniti', 'mazda', 'mini', 'nissan', 'volkswagen', 'kia', 'lincoln', 'mitsubishi', 'buick', 'audi', 'rover', 'chrysler', 'fiat', 'acura', 'volvo', 'pontiac', 'tesla', 'saturn', 'mercury', 'datsun', 'porsche', 'jaguar', 'ferrari', 'alfa-romeo', 'harley-davidson', 'land rover', 'aston-martin', 'morgan', 'hennessey'
     ];
-    const mileages = ['0-10,000', '10,001-20,000', '20,001-30,000', '30,001-40,000', '40,001-50,000', '50,001-60,000', '60,001-70,000', '70,001-80,000', '80,001-90,000', '90,001-100,000', '100,001-120,000', '120,001-140,000', '140,001-160,000', '160-001-200,000', '200,000 and up!'];
+    const mileages = ['0-10,000 mi', '10,001-20,000 mi', '20,001-30,000 mi', '30,001-40,000 mi', '40,001-50,000 mi', '50,001-60,000 mi', '60,001-70,000 mi', '70,001-80,000 mi', '80,001-90,000 mi', '90,001-100,000 mi', '100,001-120,000 mi', '120,001-140,000 mi', '140,001-160,000 mi', '160-001-200,000 mi', '200,000 mi+'];
 
     return(
-      <div>
+      <div className="searchSection">
         {/* {console.log(this.state)} */}
-        <h3>Search!</h3>
+        <h3 className="searchByMakeText">Search by Make</h3>
+        <select
+          name="manufacturers"
+          onChange={e => this.handleManufacturersChange(e)}
+        >
+          {manufacturers.map((manufacturer, idx) => {
+            return (<option
+              value={manufacturer}
+              key={idx}
+            >
+              {manufacturer}
+            </option>);
+          })}
+        </select>
+        <select
+          name="mileage"
+          onChange={e => this.handleMileagesChange(e)}
+        >
+          {mileages.map((mileage, idx) => {
+            return (<option
+              value={mileage}
+              key={idx}
+            >
+              {mileage}
+            </option>);
+          })}
+        </select>
         <select
           name="distance"
           onChange={e => this.handleDistanceChange(e)}
@@ -97,34 +123,6 @@ class Search extends React.Component {
           value={this.state.address}
           onChange={e => this.handleAddressChange(e)}
         />
-        <h4>Search by Make</h4>
-        <select
-          name="manufacturers"
-          onChange={e => this.handleManufacturersChange(e)}
-        >
-          {manufacturers.map((manufacturer, idx) => {
-            return (<option
-              value={manufacturer}
-              key={idx}
-            >
-              {manufacturer}
-            </option>);
-          })}
-        </select>
-        <h4>Mileage</h4>
-        <select
-          name="mileage"
-          onChange={e => this.handleMileagesChange(e)}
-        >
-          {mileages.map((mileage, idx) => {
-            return (<option
-              value={mileage}
-              key={idx}
-            >
-              {mileage}
-            </option>);
-          })}
-        </select>
         <button
           onClick={this.handleSearchButton}
         >

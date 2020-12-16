@@ -8,7 +8,10 @@ const CarDetails = ({ clickedCar }) => {
     <div>
       <div>Posted {momentAgo}</div>
       <h3>{clickedCar.year} {clickedCar.model}</h3>
-      <img src={clickedCar.image_url} />
+      <img
+        src={clickedCar.image_url}
+        width="300px"
+      />
       <div>price: <strong>{clickedCar.price}</strong></div>
       <div>VIN: <strong>{clickedCar.VIN}</strong></div>
       <div>title: <strong>{clickedCar.title_status}</strong></div>

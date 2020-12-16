@@ -17,7 +17,7 @@ class Map extends React.Component {
     const { defaultCenter, zoom, center, cars } = this.props;
 
     return (
-      <div style={{ height: '100vh', width: '100%' }}>
+      <div style={{ height: '500px', width: '100%' }}>
         <GoogleMapReact
           bootstrapURLKeys={{ key: 'temp', language: 'en' }}
           // bootstrapURLKeys={{ key: MAP_API, language: 'en' }}

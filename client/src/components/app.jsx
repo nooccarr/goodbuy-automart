@@ -81,21 +81,35 @@ class App extends React.Component {
   render() {
     return(
       <React.Fragment>
-        {console.log(this.state)}
-        <h1>Find your next match</h1>
-        <Map
-          defaultCenter={this.state.defaultCenter}
-          zoom={this.state.zoom}
-          center={this.state.center}
-          cars={this.state.cars}
-          getClickedCar={this.getClickedCar}
-        />
-        <Search
-          getCarList={this.getCarList}
-        />
-        {this.state.clickedCar ? <CarDetails
-          clickedCar={this.state.clickedCar}
-        /> : null}
+        <div className="nav">
+          <img
+            className="navLogo"
+            src="./main.png"
+            width="50px"
+            height="50px"
+          />
+          <h1 className="navText">Find your next match</h1>
+        </div>
+        <div className="app">
+          {/* {console.log(this.state)} */}
+          <div className="col-2-3">
+            <Map
+              defaultCenter={this.state.defaultCenter}
+              zoom={this.state.zoom}
+              center={this.state.center}
+              cars={this.state.cars}
+              getClickedCar={this.getClickedCar}
+            />
+          </div>
+          <div className="col-1-3">
+            <Search
+              getCarList={this.getCarList}
+            />
+            {this.state.clickedCar ? <CarDetails
+              clickedCar={this.state.clickedCar}
+            /> : null}
+          </div>
+        </div>
       </React.Fragment>
     );
   }
