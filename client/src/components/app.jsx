@@ -8,6 +8,11 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      center: {
+        lat: 59.95,
+        lng: 30.33
+      },
+      zoom: 11,
       cars: []
     };
     this.getCarList = this.getCarList.bind(this);
@@ -40,7 +45,10 @@ class App extends React.Component {
       <React.Fragment>
         {console.log(this.state)}
         <h1>Find your next match</h1>
-        <Map />
+        <Map
+          center={this.state.center}
+          zoom={this.state.zoom}
+        />
         <Search
           getCarList={this.getCarList}
         />
@@ -54,7 +62,7 @@ export default App;
 
 // TODO:
 // change lat & long min and max to 1? V
-// implement haversine
+// implement haversine V
 // render this.cars if it changes
 // build map component
 // build car detail component
