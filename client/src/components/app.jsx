@@ -17,9 +17,11 @@ class App extends React.Component {
         lng: -73.7949
       },
       zoom: 8,
-      cars: []
+      cars: [],
+      clickedCar: null
     };
     this.getCarList = this.getCarList.bind(this);
+    this.getClickedCar = this.getClickedCar.bind(this);
   }
 
   getCarList(manufacturer, latitude, longitude, mileageMin, mileageMax, distance) {
@@ -48,6 +50,12 @@ class App extends React.Component {
       .catch(err => console.log(err));
   }
 
+  getClickedCar(idx) {
+    this.setState({
+      clickedCar: this.state.cars[idx]
+    })
+  }
+
   render() {
     return(
       <React.Fragment>
@@ -58,11 +66,12 @@ class App extends React.Component {
           zoom={this.state.zoom}
           center={this.state.center}
           cars={this.state.cars}
+          getClickedCar={this.getClickedCar}
         />
         <Search
           getCarList={this.getCarList}
         />
-        <CarDetails />
+        {this.state.clickedCar ? <CarDetails /> : null}
       </React.Fragment>
     );
   }
