@@ -3,7 +3,7 @@ const bodyParser = require('./index.js');
 
 module.exports = {
   getAll: (req, res) => {
-    let params = req.query;
+    let params = Object.values(req.query);
     models.readAll(params, (err, result) => {
       if (err) {
         res.sendStatus(404);

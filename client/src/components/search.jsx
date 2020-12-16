@@ -9,9 +9,9 @@ class Search extends React.Component {
     super(props);
     this.state = {
       address: '',
-      manufacturer: '%',
+      manufacturer: 'chevrolet',
       mileageMin: 0,
-      mileageMax: 2043755555
+      mileageMax: 10000
     };
     this.handleAddressChange = this.handleAddressChange.bind(this);
     this.handleManufacturersChange = this.handleManufacturersChange.bind(this);
