@@ -1,4 +1,6 @@
 import React from 'react';
+import axios from 'axios';
+import parseAddress from '../../utils/parseAddress.js';
 import getMileageMinAndMax from '../../utils/getMileageMinAndMax.js';
 
 class Search extends React.Component {
@@ -13,6 +15,7 @@ class Search extends React.Component {
     this.handleAddressChange = this.handleAddressChange.bind(this);
     this.handleManufacturersChange = this.handleManufacturersChange.bind(this);
     this.handleMileagesChange = this.handleMileagesChange.bind(this);
+    this.handleSearchButton = this.handleSearchButton.bind(this);
   }
 
   handleAddressChange(e) {
@@ -32,6 +35,15 @@ class Search extends React.Component {
     this.setState({
       mileageMin: mileageRange.min,
       mileageMax: mileageRange.max
+    });
+    return axios
+
+  }
+
+  handleSearchButton() {
+    let parsedAddress = parseAddress(this.state.address);
+    this.setState({
+      address: parsedAddress
     });
   }
 
@@ -76,7 +88,11 @@ class Search extends React.Component {
             </option>);
           })}
         </select>
-        <button>Search</button>
+        <button
+          onClick={this.handleSearchButton}
+        >
+          Search
+        </button>
       </div>
     );
   }
