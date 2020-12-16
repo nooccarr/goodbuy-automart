@@ -18,7 +18,29 @@ class App extends React.Component {
       },
       zoom: 8,
       cars: [],
-      clickedCar: null
+      // clickedCar: null
+      clickedCar: {
+        VIN: "1C6HJTAG3LL127591",
+        cylinders: "6",
+        drive: "4wd",
+        fuel: "gas",
+        id: 277072,
+        image_url: "https://images.craigslist.org/01717_kgxIMSMnPro_0gw0co_600x450.jpg",
+        latitude: 40.8,
+        longitude: -73.12,
+        manufacturer: "jeep",
+        model: "gladiator sport pickup 4d 5",
+        odometer: 23340,
+        paint_color: "silver",
+        physical_condition: "good",
+        posting_date: "2020-12-01T05:00:00.000Z",
+        price: "36990",
+        state: "ny",
+        title_status: "clean",
+        transmission: "other",
+        type: "pickup",
+        year: 2020
+      }
     };
     this.getCarList = this.getCarList.bind(this);
     this.getClickedCar = this.getClickedCar.bind(this);
@@ -71,7 +93,9 @@ class App extends React.Component {
         <Search
           getCarList={this.getCarList}
         />
-        {this.state.clickedCar ? <CarDetails /> : null}
+        {this.state.clickedCar ? <CarDetails
+          clickedCar={this.state.clickedCar}
+        /> : null}
       </React.Fragment>
     );
   }
@@ -82,14 +106,18 @@ export default App;
 // TODO:
 // change lat & long min and max to 1? V
 // implement haversine V
-// render this.cars if it changes
+// render this.cars if it changes V
 // build map component V
 // build car detail component
-// make api calls to mark car locations on the map
+// make api calls to mark car locations on the map V
 // css
 
+// challenge 1:
+// how to get coordination for an address
 // challenge 2:
-// how to display cars in this.state
+// how to calculate distance between 2 coordinates
+// challenge 3:
+// how to display cars to google map
 
 // deploy on heroku
 // create an instance

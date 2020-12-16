@@ -77,7 +77,7 @@ class Search extends React.Component {
 
     return(
       <div>
-        {console.log(this.state)}
+        {/* {console.log(this.state)} */}
         <h3>Search!</h3>
         <select
           name="distance"
