@@ -5,7 +5,7 @@ const CarDetails = ({ clickedCar }) => {
   let momentAgo = moment(clickedCar.posting_date, 'YYYY-MM-DD').fromNow();
 
   return (
-    <div>
+    <React.Fragment>
       <div className="postedDate">Posted {momentAgo}</div>
       <h3 className="carModelAndYear">{clickedCar.year} {clickedCar.model}</h3>
       <img
@@ -68,7 +68,7 @@ const CarDetails = ({ clickedCar }) => {
           {clickedCar.fuel}
         </strong>
       </div>
-    </div>
+    </React.Fragment>
   );
 };
 

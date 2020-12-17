@@ -21,16 +21,18 @@ CREATE TABLE cars(
   type VARCHAR(11),
   paint_color VARCHAR(6),
   image_url VARCHAR(80) NOT NULL,
-  state VARCHAR(2) NOT NULL,
   latitude DECIMAL(11, 7),
   longitude DECIMAL(11, 7),
   posting_date DATE NOT NULL,
   PRIMARY KEY (id)
 );
 
--- TODO: add index
+ALTER TABLE cars ADD INDEX manufacturer_id (manufacturer);
+ALTER TABLE cars ADD INDEX latitude_id (latitude);
+ALTER TABLE cars ADD INDEX longitude_id (longitude);
+ALTER TABLE cars ADD INDEX odometer_id (odometer);
 
-LOAD DATA LOCAL INFILE '../data/cleanedVehicles.csv'
+LOAD DATA LOCAL INFILE '../cleaner/cleanedVehicles.csv'
 INTO TABLE cars
 FIELDS TERMINATED BY ','
 ENCLOSED BY '"'

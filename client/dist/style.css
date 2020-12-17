@@ -34,18 +34,6 @@ body {
 ol, ul {
 	list-style: none;
 }
-blockquote, q {
-	quotes: none;
-}
-blockquote:before, blockquote:after,
-q:before, q:after {
-	content: '';
-	content: none;
-}
-table {
-	border-collapse: collapse;
-	border-spacing: 0;
-}
 
 .app {
   margin: 30px auto;
@@ -161,6 +149,7 @@ table {
   margin: 5px 0 10px 0;
   font: bold 16px "Helvetica Neue", Helvetica, Arial, sans-serif;
   color: gray;
+  text-transform: capitalize;
 }
 
 .carImage {

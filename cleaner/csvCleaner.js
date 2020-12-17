@@ -30,14 +30,12 @@ const csvStringifier = createCsvStringifier({
 let readStream = fs.createReadStream('./vehicles.csv');
 let writeStream = fs.createWriteStream('./cleanedVehicles.csv');
 
-
 class csvCleaner extends Transform {
   constructor(options) {
     super(options);
   }
 
   _transform(chunk, encoding, next) {
-    let chunks = [];
     const filtered = ['id', 'region', 'region_url', 'url', 'size', 'description', 'state'];
     for (let key in chunk) {
       if (filtered.indexOf(key) >= 0) {
