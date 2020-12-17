@@ -12,7 +12,6 @@ module.exports = {
         for (let i = 0; i < result.length; i++) {
           if (distance(Number(params[1]) + 1, Number(params[3]) + 1, result[i].latitude, result[i].longitude) <= Number(params[7])) {
             filtered.push(result[i]);
-            console.log(distance(Number(params[1]) + 1, Number(params[3]) + 1, result[i].latitude, result[i].longitude))
           }
         }
         res.json(filtered);
