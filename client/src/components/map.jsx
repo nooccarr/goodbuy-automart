@@ -30,7 +30,8 @@ class Map extends React.Component {
               <Car
                 style={{
                   position: 'absolute',
-                  transform: 'translate(-50%, -50%)'}}
+                  transform: 'translate(-50%, -50%)'
+                }}
                 lat={car.latitude}
                 lng={car.longitude}
                 text={<img

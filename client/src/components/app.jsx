@@ -29,10 +29,10 @@ class App extends React.Component {
       .get('/cars', {
         params: {
           manufacturer: manufacturer,
-          latitudeMin: latitude - 1, // approx. 69 miles
-          latitudeMax: latitude + 1,
-          longitudeMin: longitude - 1,
-          longitudeMax: longitude + 1,
+          latitudeMin: latitude - 7.5, // approx. 69 miles
+          latitudeMax: latitude + 7.5,
+          longitudeMin: longitude - 7.5,
+          longitudeMax: longitude + 7.5,
           mileageMin: mileageMin,
           mileageMax: mileageMax,
           distance: distance

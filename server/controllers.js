@@ -10,7 +10,7 @@ module.exports = {
       } else {
         let filtered = [];
         for (let i = 0; i < result.length; i++) {
-          if (distance(Number(params[1]) + 1, Number(params[3]) + 1, result[i].latitude, result[i].longitude) <= Number(params[7])) {
+          if (distance(Number(params[1]) + 7.5, Number(params[3]) + 7.5, result[i].latitude, result[i].longitude) <= Number(params[7])) {
             filtered.push(result[i]);
           }
         }
