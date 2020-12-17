@@ -150,3 +150,55 @@ table {
   color: white;
   cursor: pointer;
 }
+
+.postedDate {
+  margin-top: 20px;
+  font: 400 11px "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: gray;
+}
+
+.carModelAndYear {
+  margin: 5px 0 10px 0;
+  font: bold 16px "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: gray;
+}
+
+.carImage {
+  border-radius: 5px;
+}
+
+.carPrice,
+.carVin,
+.carTitle,
+.carOdometer,
+.carCondition,
+.carColor,
+.carType,
+.carDrive,
+.carTransmission,
+.carCylinders,
+.carFuel {
+  font: 300 13px "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: gray;
+  border: 1px dotted lightgray;
+  margin: 5px 0;
+  padding: 3px;
+  border-radius: 3px;
+  text-transform: capitalize;
+}
+
+.carPriceBold,
+.carVinBold,
+.carTitleBold,
+.carOdometerBold,
+.carConditionBold,
+.carColorBold,
+.carTypeBold,
+.carDriveBold,
+.carTransmissionBold,
+.carCylindersBold,
+.carFuelBold {
+  padding-left: 3px;
+  font: 400 13px "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: gray;
+}

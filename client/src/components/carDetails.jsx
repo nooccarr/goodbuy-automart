@@ -6,26 +6,70 @@ const CarDetails = ({ clickedCar }) => {
 
   return (
     <div>
-      <div>Posted {momentAgo}</div>
-      <h3>{clickedCar.year} {clickedCar.model}</h3>
+      <div className="postedDate">Posted {momentAgo}</div>
+      <h3 className="carModelAndYear">{clickedCar.year} {clickedCar.model}</h3>
       <img
+        className="carImage"
         src={clickedCar.image_url}
         width="300px"
       />
-      <div>price: <strong>{clickedCar.price}</strong></div>
-      <div>VIN: <strong>{clickedCar.VIN}</strong></div>
-      <div>title: <strong>{clickedCar.title_status}</strong></div>
-      <div>odometer: <strong>{clickedCar.odometer}</strong></div>
-      <div>condition: <strong>{clickedCar.physical_condition}</strong></div>
-      <div>color: <strong>{clickedCar.paint_color}</strong></div>
-      <div>type: <strong>{clickedCar.type}</strong></div>
-      <div>drive: <strong>{clickedCar.drive}</strong></div>
-      <div>transmission: <strong>{clickedCar.transmission}</strong></div>
-      <div>cylinders: <strong>{clickedCar.cylinders}</strong></div>
-      <div>fuel: <strong>{clickedCar.fuel}</strong></div>
+      <div className="carPrice">price:
+        <strong className="carPriceBold">
+          {clickedCar.price}
+        </strong>
+      </div>
+      <div className="carVin">VIN:
+        <strong className="carVinBold">
+          {clickedCar.VIN}
+        </strong>
+      </div>
+      <div className="carTitle">title:
+        <strong className="carTitleBold">
+          {clickedCar.title_status}
+        </strong>
+      </div>
+      <div className="carOdometer">odometer:
+        <strong className="carOdometerBold">
+          {clickedCar.odometer}
+        </strong>
+      </div>
+      <div className="carCondition">condition:
+        <strong className="carConditionBold">
+          {clickedCar.physical_condition}
+        </strong>
+      </div>
+      <div className="carColor">color:
+        <strong className="carColorBold">
+          {clickedCar.paint_color}
+        </strong>
+      </div>
+      <div className="carType">type:
+        <strong className="carTypeBold">
+          {clickedCar.type}
+        </strong>
+      </div>
+      <div className="carDrive">drive:
+        <strong className="carDriveBold">
+          {clickedCar.drive}
+        </strong>
+      </div>
+      <div className="carTransmission">transmission:
+        <strong className="carTransmissionBold">
+          {clickedCar.transmission}
+        </strong>
+      </div>
+      <div className="carCylinders">cylinders:
+        <strong className="carCylindersBold">
+          {clickedCar.cylinders}
+        </strong>
+      </div>
+      <div className="carFuel">fuel:
+        <strong className="carFuelBold">
+          {clickedCar.fuel}
+        </strong>
+      </div>
     </div>
   );
-
 };
 
 export default CarDetails;
