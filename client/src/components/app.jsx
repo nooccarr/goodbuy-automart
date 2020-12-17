@@ -18,29 +18,7 @@ class App extends React.Component {
       },
       zoom: 8,
       cars: [],
-      // clickedCar: null
-      clickedCar: {
-        VIN: "1C6HJTAG3LL127591",
-        cylinders: "6",
-        drive: "4wd",
-        fuel: "gas",
-        id: 277072,
-        image_url: "https://images.craigslist.org/01717_kgxIMSMnPro_0gw0co_600x450.jpg",
-        latitude: 40.8,
-        longitude: -73.12,
-        manufacturer: "jeep",
-        model: "gladiator sport pickup 4d 5",
-        odometer: 23340,
-        paint_color: "silver",
-        physical_condition: "good",
-        posting_date: "2020-12-01T05:00:00.000Z",
-        price: "36990",
-        state: "ny",
-        title_status: "clean",
-        transmission: "other",
-        type: "pickup",
-        year: 2020
-      }
+      clickedCar: null
     };
     this.getCarList = this.getCarList.bind(this);
     this.getClickedCar = this.getClickedCar.bind(this);
@@ -117,22 +95,22 @@ class App extends React.Component {
 
 export default App;
 
-// TODO:
 // change lat & long min and max to 1? V
 // implement haversine V
 // render this.cars if it changes V
 // build map component V
-// build car detail component
+// build car detail component V
 // make api calls to mark car locations on the map V
-// css
+// css V
 
-// challenge 1:
+// challenge 1: V
 // how to get coordination for an address
-// challenge 2:
+// challenge 2: V
 // how to calculate distance between 2 coordinates
-// challenge 3:
+// challenge 3: V
 // how to display cars to google map
 
+// TODO:
 // deploy on heroku
 // create an instance
 // transform: add index to schema.sql

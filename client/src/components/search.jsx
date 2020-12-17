@@ -51,21 +51,19 @@ class Search extends React.Component {
   handleSearchButton() {
     let address = parseAddress(this.state.address);
     let distance = parseDistance(this.state.distance);
-    // FIXME:
-    // return axios
-    //   .get('https://maps.googleapis.com/maps/api/geocode/json', {
-    //     params: {
-    //       address: address,
-    //       key: GEO_API
-    //     }
-    //   })
-    //   .then(({ data }) => {
-    //     let coordinates = data.results[0].geometry.location;
-    //     let { lat, lng } = coordinates;
-    //     this.props.getCarList(this.state.manufacturer, lat, lng, this.state.mileageMin, this.state.mileageMax, distance);
-    //   })
-    //   .catch(err => console.log(err));
-    this.props.getCarList(this.state.manufacturer, 40.7474874, -73.752967, this.state.mileageMin, this.state.mileageMax, distance);
+    return axios
+      .get('https://maps.googleapis.com/maps/api/geocode/json', {
+        params: {
+          address: address,
+          key: GEO_API
+        }
+      })
+      .then(({ data }) => {
+        let coordinates = data.results[0].geometry.location;
+        let { lat, lng } = coordinates;
+        this.props.getCarList(this.state.manufacturer, lat, lng, this.state.mileageMin, this.state.mileageMax, distance);
+      })
+      .catch(err => console.log(err));
   }
 
   render() {
