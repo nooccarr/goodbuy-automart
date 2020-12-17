@@ -87,10 +87,66 @@ table {
   vertical-align: top;
 }
 
-.searchSection {
-  border: 1px solid grey;
+.searchByMakeText {
+  padding-top: 15px;
+  border: 1px solid #e7bbe3;
+  border-bottom-color: #e7bbe3;
+  border-radius: 5px 5px 0 0;
+  text-align: center;
+  height: 25px;
+  background-color: #e7bbe3;
+  font: bold 14px "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: white;
 }
 
-.searchByMakeText {
-  border: 1px solid gray;
+.manufacturersDropdown {
+  border: 1px solid lightgray;
+  border-bottom-color: white;
+  width: 150px;
+  height: 40px;
+  font: 400 11px "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: gray;
+  text-transform: capitalize;
+}
+
+.mileagesDropdown {
+  border: 1px solid lightgray;
+  border-bottom-color: white;
+  border-left-color: white;
+  width: 150px;
+  height: 40px;
+  display: inline-block;
+  font: 400 11px "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: gray;
+}
+
+.distancesDropdown {
+  margin: 0;
+  display: inline-block;
+  border: 1px solid lightgray;
+  border-right-color: white;
+  width: 94px;
+  height: 40px;
+  font: 400 11px "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: gray;
+}
+
+.addressBar {
+  border: 1px solid lightgray;
+  width: 200px;
+  height: 36px;
+  font: 400 11px "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: gray;
+}
+
+.searchButton {
+  width: 300px;
+  border: 1px solid #c884a6;
+  border-top-color: #c884a6;
+  border-radius: 0 0 5px 5px;
+  height: 40px;
+  background-color: #c884a6;
+  font: bold 14px "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: white;
+  cursor: pointer;
 }

@@ -73,13 +73,14 @@ class Search extends React.Component {
     const manufacturers = [
       'chevrolet', 'bmw', 'ford', 'toyota', 'jeep', 'ram', 'hyundai', 'honda', 'dodge', 'lexus', 'mercedes-benz', 'cadillac', 'gmc', 'subaru', 'infiniti', 'mazda', 'mini', 'nissan', 'volkswagen', 'kia', 'lincoln', 'mitsubishi', 'buick', 'audi', 'rover', 'chrysler', 'fiat', 'acura', 'volvo', 'pontiac', 'tesla', 'saturn', 'mercury', 'datsun', 'porsche', 'jaguar', 'ferrari', 'alfa-romeo', 'harley-davidson', 'land rover', 'aston-martin', 'morgan', 'hennessey'
     ];
-    const mileages = ['0-10,000 mi', '10,001-20,000 mi', '20,001-30,000 mi', '30,001-40,000 mi', '40,001-50,000 mi', '50,001-60,000 mi', '60,001-70,000 mi', '70,001-80,000 mi', '80,001-90,000 mi', '90,001-100,000 mi', '100,001-120,000 mi', '120,001-140,000 mi', '140,001-160,000 mi', '160-001-200,000 mi', '200,000 mi+'];
+    const mileages = ['0-10,000 mi', '10,001-20,000 mi', '20,001-30,000 mi', '30,001-40,000 mi', '40,001-50,000 mi', '50,001-60,000 mi', '60,001-70,000 mi', '70,001-80,000 mi', '80,001-90,000 mi', '90,001-100,000 mi', '100,001-120,000 mi', '120,001-140,000 mi', '140,001-160,000 mi', '160,001-200,000 mi', '200,000 mi+'];
 
     return(
-      <div className="searchSection">
+      <React.Fragment>
         {/* {console.log(this.state)} */}
         <h3 className="searchByMakeText">Search by Make</h3>
         <select
+          className="manufacturersDropdown"
           name="manufacturers"
           onChange={e => this.handleManufacturersChange(e)}
         >
@@ -93,6 +94,7 @@ class Search extends React.Component {
           })}
         </select>
         <select
+          className="mileagesDropdown"
           name="mileage"
           onChange={e => this.handleMileagesChange(e)}
         >
@@ -106,6 +108,7 @@ class Search extends React.Component {
           })}
         </select>
         <select
+          className="distancesDropdown"
           name="distance"
           onChange={e => this.handleDistanceChange(e)}
         >
@@ -119,16 +122,18 @@ class Search extends React.Component {
           })}
         </select>
         <input
+          className="addressBar"
           type="text"
           value={this.state.address}
           onChange={e => this.handleAddressChange(e)}
         />
         <button
+          className="searchButton"
           onClick={this.handleSearchButton}
         >
           Search
         </button>
-      </div>
+      </React.Fragment>
     );
   }
 };
