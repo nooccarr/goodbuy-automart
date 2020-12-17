@@ -29,7 +29,7 @@ class App extends React.Component {
       .get('/cars', {
         params: {
           manufacturer: manufacturer,
-          latitudeMin: latitude - 7.5, // approx. 69 miles
+          latitudeMin: latitude - 7.5, // 1 = approx. 69 miles
           latitudeMax: latitude + 7.5,
           longitudeMin: longitude - 7.5,
           longitudeMax: longitude + 7.5,
@@ -94,21 +94,6 @@ class App extends React.Component {
 };
 
 export default App;
-
-// change lat & long min and max to 1? V
-// implement haversine V
-// render this.cars if it changes V
-// build map component V
-// build car detail component V
-// make api calls to mark car locations on the map V
-// css V
-
-// challenge 1: V
-// how to get coordination for an address
-// challenge 2: V
-// how to calculate distance between 2 coordinates
-// challenge 3: V
-// how to display cars to google map
 
 // TODO:
 // deploy on heroku
