@@ -1,6 +1,6 @@
 # GoodBuy AutoMart
 
-This application was built to utilize the Google Maps Platform and it's various APIs. The primary technologies used are React to render custom styled-components, Express to retrieve data from a custom-built API, CSS for general styling, and MySQL for cleaning and storing used car listings on Craigslist.
+This application was built to utilize the Google Maps Platform and it's various APIs. The primary technologies used are React to render custom styled-components, Express to retrieve data from a custom-built API, CSS for general styling, and MySQL for storing Craigslist used car listings.
 
 ## Building and Running Environment
 
