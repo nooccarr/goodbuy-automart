@@ -1,6 +1,7 @@
 # GoodBuy AutoMart
 
-The primary technologies used are React to render
+This application was built to utilize the Google Maps Platform and it's various APIs. The primary technologies used are React to render custom styled-components, Express to retrieve data from a custom-built API, CSS for general styling, MySQL for cleaning and storing Craigslist used car listings.
+
 ## Building and Running Environment
 
 First install dependencies:
