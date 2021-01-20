@@ -8,7 +8,7 @@
   "scripts": {
     "clean": "rm client/dist/bundle.js",
     "build-dev": "webpack -d --mode development --watch",
-    "start": "nodemon server/index.js --watch"
+    "start": "nodemon server/index.js"
   },
   "dependencies": {
     "axios": "^0.21.0",
