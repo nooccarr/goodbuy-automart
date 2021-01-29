@@ -56,7 +56,7 @@ class App extends React.Component {
             width="50px"
             height="50px"
           />
-          <h1 className="navText">Find your next match</h1>
+          <h1 className="navText">GoodBuy AutoMart</h1>
         </div>
         <div className="app">
           {/* {console.log(this.state)} */}
