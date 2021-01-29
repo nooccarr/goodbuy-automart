@@ -61,12 +61,12 @@ ol, ul {
 
 .navText {
   color: white;
-  text-transform: capitalize;
   font: bold 34px "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 .navLogo {
   margin-right: 15px;
+  width: 90px;
 }
 
 .col-2-3 {

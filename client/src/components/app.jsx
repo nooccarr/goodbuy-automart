@@ -49,18 +49,13 @@ class App extends React.Component {
   render() {
     return(
       <React.Fragment>
-        <div className="nav">
-          <img
-            className="navLogo"
-            src="./main.png"
-            width="50px"
-            height="50px"
-          />
-          <h1 className="navText">GoodBuy AutoMart</h1>
+        <div className='nav'>
+          <img className='navLogo' src='./main.png' />
+          <h1 className='navText'>GoodBuy AutoMart</h1>
         </div>
-        <div className="app">
+        <div className='app'>
           {/* {console.log(this.state)} */}
-          <div className="col-2-3">
+          <div className='col-2-3'>
             <Map
               defaultCenter={this.state.defaultCenter}
               zoom={this.state.zoom}
@@ -69,7 +64,7 @@ class App extends React.Component {
               getClickedCar={this.getClickedCar}
             />
           </div>
-          <div className="col-1-3">
+          <div className='col-1-3'>
             <Search
               getCarList={this.getCarList}
             />
