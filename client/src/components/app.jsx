@@ -24,25 +24,15 @@ class App extends React.Component {
     this.getClickedCar = this.getClickedCar.bind(this);
   }
 
-  getCarList(manufacturer, latitude, longitude, mileageMin, mileageMax, distance) {
+  getCarList(car) {
+    console.log(car);
     return axios
-      .get('/cars', {
-        params: {
-          manufacturer: manufacturer,
-          latitudeMin: latitude - 7.5, // 1 = approx. 69 miles
-          latitudeMax: latitude + 7.5,
-          longitudeMin: longitude - 7.5,
-          longitudeMax: longitude + 7.5,
-          mileageMin: mileageMin,
-          mileageMax: mileageMax,
-          distance: distance
-        }
-      })
+      .get('/cars', { params: car })
       .then(({ data }) => {
         this.setState({
           center: {
-            lat: latitude,
-            lng: longitude
+            lat: car.latitudeMin + 7.5, //
+            lng: car.longitudeMin + 7.5 //
           },
           cars: data
         });

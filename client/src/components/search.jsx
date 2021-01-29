@@ -73,7 +73,16 @@ class Search extends React.Component {
       .then(({ data }) => {
         let coordinates = data.results[0].geometry.location;
         let { lat, lng } = coordinates;
-        this.props.getCarList(this.state.manufacturer, lat, lng, this.state.mileageMin, this.state.mileageMax, distance);
+        this.props.getCarList({
+          manufacturer: this.state.manufacturer,
+          latitudeMin: lat - 7.5, // 1 = approx. 69 miles
+          latitudeMax: lat + 7.5,
+          longitudeMin: lng - 7.5,
+          longitudeMax: lng + 7.5,
+          mileageMin: this.state.mileageMin,
+          mileageMax: this.state.mileageMax,
+          distance: distance
+        });
       })
       .catch(err => console.log(err));
   }
