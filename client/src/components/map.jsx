@@ -13,28 +13,17 @@ const Map = ({ defaultCenter, zoom, center, cars, getClickedCar }) => (
     >
       {cars.map((car, idx) => {
         return (
-          <Car
-            style={{
-              position: 'absolute',
-              transform: 'translate(-50%, -50%)'
-            }}
+          <div
+            className='carPositionOnMap'
             lat={car.latitude}
             lng={car.longitude}
             key={idx}
-          />
+          >
+            <img src="./car.png" width="25px" />
+          </div>
         );
       })}
     </GoogleMapReact>
-  </div>
-);
-
-const Car = () => (
-  <div>
-    <img
-      src="./car.png"
-      width="25px"
-      height="25px"
-    />
   </div>
 );
 

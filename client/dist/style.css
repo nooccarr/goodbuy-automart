@@ -74,6 +74,11 @@ ol, ul {
   vertical-align: top;
 }
 
+.carPositionOnMap {
+  position: 'absolute';
+  transform: 'translate(-50%, -50%)';
+}
+
 .searchByMakeText {
   padding-top: 15px;
   border: 1px solid #e7bbe3;

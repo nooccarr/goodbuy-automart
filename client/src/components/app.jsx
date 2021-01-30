@@ -45,9 +45,7 @@ const App = () => {
           />
         </div>
         <div className='col-1-3'>
-          <Search
-            getCarList={getCarList}
-          />
+          <Search getCarList={getCarList} />
           {clickedCar ? <CarDetails clickedCar={clickedCar} /> : null}
         </div>
       </div>
