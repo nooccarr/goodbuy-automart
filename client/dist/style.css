@@ -37,9 +37,9 @@ ol, ul {
 }
 
 .app {
-  min-width: 1000px;
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
 }
 
 .nav {
@@ -49,7 +49,7 @@ ol, ul {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-bottom: 17vh;
+
 }
 
 .navText {
@@ -62,17 +62,38 @@ ol, ul {
   width: 90px;
 }
 
+.navList {
+  background-color: #aebaf5;
+  height: 30px;
+  padding-top: 8px;
+  border: 2px solid white;
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.navListItem {
+  color: white;
+  font: 500 17px "Helvetica Neue", Helvetica, Arial, sans-serif;
+  text-decoration: none;
+}
+
+.navListItem:hover {
+  color: #ab57fd;
+}
+
 .col-2-3 {
   display: inline-block;
   width: 600px;
-  padding-right: 20px;
+  padding-right: 40px;
+  margin-top: 6vh;
 }
 
 .col-1-3 {
   display: inline-block;
   width: 300px;
-  padding-left: 20px;
   vertical-align: top;
+  margin-top: 6vh;
 }
 
 .mapContainer {
@@ -189,7 +210,7 @@ ol, ul {
 }
 
 .carFuel {
-  margin-bottom: 90px;
+  margin-bottom: 50px;
 }
 
 .carPriceBold,
@@ -219,4 +240,18 @@ ol, ul {
   cursor: pointer;
   text-transform: capitalize;
   width: 300px;
+}
+
+.favoriteCarsContainer {
+  margin-top: 6vh;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+
+}
+
+.carDetailsContainer {
+  width: 300px;
+  display: inline-block;
+  vertical-align: top;
 }

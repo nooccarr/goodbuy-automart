@@ -1,8 +1,13 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import Map from './map.jsx';
-import Search from './search.jsx';
-import CarDetails from './carDetails.jsx';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from 'react-router-dom';
+import Home from './home.jsx';
+import Favorites from './favorites.jsx';
 
 const defaultCoordinates = { lat: 40.7282, lng: -73.7949 };
 
@@ -24,6 +29,7 @@ const App = () => {
           lng: car.longitude
         });
         setCars(data);
+        setFavoriteCars(data); //////////////////// DELETE
       })
       .catch(err => console.log(err));
   };
@@ -46,32 +52,45 @@ const App = () => {
         <img className='navLogo' src='./main.png' />
         <h1 className='navText'>GoodBuy AutoMart</h1>
       </div>
-      <div className='app'>
-        <div className='col-2-3'>
-          <Map
-            defaultCenter={defaultCenter}
-            zoom={zoom}
-            center={center}
-            cars={cars}
-            getClickedCar={getClickedCar}
-          />
-        </div>
-        <div className='col-1-3'>
-          <Search getCarList={getCarList} />
-          {clickedCar ? <React.Fragment>
-            <button
-              className='addToFavorite'
-              onClick={addToFavoriteCar}
-            >
-              {clickedFavorite ? 'added!' : 'add to favorite'}
-            </button>
-            <CarDetails clickedCar={clickedCar} />
-          </React.Fragment> : null}
-        </div>
-      </div>
-      {favoriteCars.length ? favoriteCars.map((favoriteCar, i) => (
-        <CarDetails key={i} clickedCar={favoriteCar} />
-      )) : null}
+      <Router>
+        <React.Fragment>
+          <ul className='navList'>
+            <li>
+              <Link
+                to="/"
+                className='navListItem'
+              >Home</Link>
+            </li>
+            <li>
+              <Link
+                to="/favorites"
+                className='navListItem'
+              >Favorites</Link>
+            </li>
+          </ul>
+          <Switch>
+            <Route path="/favorites">
+              <Favorites
+                favoriteCars={favoriteCars}
+                clickedCar={clickedCar}
+              />
+            </Route>
+            <Route path="/">
+              <Home
+                defaultCenter={defaultCenter}
+                zoom={zoom}
+                center={center}
+                cars={cars}
+                getClickedCar={getClickedCar}
+                getCarList={getCarList}
+                clickedCar={clickedCar}
+                addToFavoriteCar={addToFavoriteCar}
+                clickedFavorite={clickedFavorite}
+              />
+            </Route>
+          </Switch>
+        </React.Fragment>
+      </Router>
     </React.Fragment>
   );
 };
