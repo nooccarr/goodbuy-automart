@@ -43,8 +43,9 @@ ol, ul {
 }
 
 .nav {
-  background-color: #ccd5ff;
+  background-color: #aebaf5;
   height: 100px;
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -86,12 +87,12 @@ ol, ul {
 
 .searchByMakeText {
   padding-top: 15px;
-  border: 1px solid #e7bbe3;
-  border-bottom-color: #e7bbe3;
+  border: 1px solid #eab6e6;
+  border-bottom-color: #eab6e6;
   border-radius: 5px 5px 0 0;
   text-align: center;
   height: 25px;
-  background-color: #e7bbe3;
+  background-color: #eab6e6;
   font: bold 14px "Helvetica Neue", Helvetica, Arial, sans-serif;
   color: white;
   text-transform: capitalize;
@@ -151,7 +152,6 @@ ol, ul {
 }
 
 .postedDate {
-  margin-top: 20px;
   font: 400 11px "Helvetica Neue", Helvetica, Arial, sans-serif;
   color: gray;
 }
@@ -206,4 +206,17 @@ ol, ul {
   padding-left: 3px;
   font: 400 13px "Helvetica Neue", Helvetica, Arial, sans-serif;
   color: gray;
+}
+
+.addToFavorite {
+  margin: 20px 0;
+  border: 2px solid #7284da;
+  border-radius: 5px;
+  background-color: #7284da;
+  color: white;
+  padding: 10px;
+  font: 500 14px "Helvetica Neue", Helvetica, Arial, sans-serif;
+  cursor: pointer;
+  text-transform: capitalize;
+  width: 300px;
 }

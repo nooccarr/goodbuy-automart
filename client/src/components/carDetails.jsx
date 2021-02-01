@@ -1,17 +1,11 @@
 import React from 'react';
 import moment from 'moment';
 
-const CarDetails = ({ clickedCar, addToFavoriteCar }) => {
+const CarDetails = ({ clickedCar }) => {
   let momentAgo = moment(clickedCar.posting_date, 'YYYY-MM-DD').fromNow();
 
   return (
     <React.Fragment>
-      <button
-        className='addToFavorite'
-        onClick={() => addToFavoriteCar(clickedCar.id)}
-      >
-        add to favorite
-      </button>
       <div className="postedDate">Posted {momentAgo}</div>
       <h3 className="carModelAndYear">{clickedCar.year} {clickedCar.model}</h3>
       <img

@@ -13,6 +13,7 @@ const App = () => {
   const [cars, setCars] = useState([]);
   const [clickedCar, setClickedCar] = useState(null);
   const [favoriteCars, setFavoriteCars] = useState([]);
+  const [clickedFavorite, setClickedFavorite] = useState(false);
 
   const getCarList = (car) => {
     return axios
@@ -28,18 +29,19 @@ const App = () => {
   };
 
   const getClickedCar = (idx) => {
+    setClickedFavorite(false);
     setClickedCar(cars[idx]);
   };
 
-  const addToFavoriteCar = (id) => {
-    if (favoriteCars.every(favoriteCar => favoriteCar.id !== id)) {
+  const addToFavoriteCar = () => {
+    setClickedFavorite(true);
+    if (favoriteCars.every(favoriteCar => favoriteCar.id !== clickedCar.id)) {
       setFavoriteCars([...favoriteCars, clickedCar]);
     }
   }
 
   return(
     <React.Fragment>
-      {console.log(favoriteCars)}
       <div className='nav'>
         <img className='navLogo' src='./main.png' />
         <h1 className='navText'>GoodBuy AutoMart</h1>
@@ -56,12 +58,20 @@ const App = () => {
         </div>
         <div className='col-1-3'>
           <Search getCarList={getCarList} />
-          {clickedCar ? <CarDetails
-            clickedCar={clickedCar}
-            addToFavoriteCar={addToFavoriteCar}
-          /> : null}
+          {clickedCar ? <React.Fragment>
+            <button
+              className='addToFavorite'
+              onClick={addToFavoriteCar}
+            >
+              {clickedFavorite ? 'added!' : 'add to favorite'}
+            </button>
+            <CarDetails clickedCar={clickedCar} />
+          </React.Fragment> : null}
         </div>
       </div>
+      {favoriteCars.length ? favoriteCars.map((favoriteCar, i) => (
+        <CarDetails key={i} clickedCar={favoriteCar} />
+      )) : null}
     </React.Fragment>
   );
 };
