@@ -10,7 +10,10 @@ module.exports = {
       } else {
         let filtered = [];
         for (let i = 0; i < result.length; i++) {
-          if (distance(Number(params[7]), Number(params[8]), result[i].latitude, result[i].longitude) <= Number(params[9])) {
+          let lat = Number(params[7]);
+          let lng = Number(params[8]);
+          let dist = Number(params[9]);
+          if (distance(lat, lng, result[i].latitude, result[i].longitude) <= dist) {
             filtered.push(result[i]);
           }
         }
