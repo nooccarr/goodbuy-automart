@@ -74,6 +74,11 @@ ol, ul {
   vertical-align: top;
 }
 
+.mapContainer {
+  height: 500px;
+  width: 100%;
+}
+
 .carPositionOnMap {
   position: 'absolute';
   transform: 'translate(-50%, -50%)';
@@ -89,6 +94,7 @@ ol, ul {
   background-color: #e7bbe3;
   font: bold 14px "Helvetica Neue", Helvetica, Arial, sans-serif;
   color: white;
+  text-transform: capitalize;
 }
 
 .manufacturersDropdown {
@@ -141,6 +147,7 @@ ol, ul {
   font: bold 14px "Helvetica Neue", Helvetica, Arial, sans-serif;
   color: white;
   cursor: pointer;
+  text-transform: capitalize;
 }
 
 .postedDate {

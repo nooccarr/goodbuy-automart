@@ -4,9 +4,11 @@ import Map from './map.jsx';
 import Search from './search.jsx';
 import CarDetails from './carDetails.jsx';
 
+const defaultCoordinates = { lat: 40.7282, lng: -73.7949 };
+
 const App = () => {
-  const [defaultCenter, setDefaultCenter] = useState({ lat: 40.7282, lng: -73.7949 });
-  const [center, setCenter] = useState({ lat: 40.7282, lng: -73.7949 });
+  const [defaultCenter, setDefaultCenter] = useState(defaultCoordinates);
+  const [center, setCenter] = useState(defaultCoordinates);
   const [zoom, setZoom] = useState(8);
   const [cars, setCars] = useState([]);
   const [clickedCar, setClickedCar] = useState(null);
@@ -16,8 +18,8 @@ const App = () => {
       .get('/cars', { params: car })
       .then(({ data }) => {
         setCenter({
-          lat: car.latitudeMin + 7.5, //
-          lng: car.longitudeMin + 7.5 //
+          lat: car.latitude,
+          lng: car.longitude
         });
         setCars(data);
       })
@@ -57,6 +59,9 @@ export default App;
 
 // TODO:
 // deploy on heroku
-// create an instance
-// transform: add index to schema.sql
-// load: instance
+// -create an instance
+// -transform: add index to schema.sql
+// -load: instance
+
+// implement google direction API
+// create favorite (routing for favorite)

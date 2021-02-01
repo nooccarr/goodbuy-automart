@@ -17,10 +17,10 @@ const mileages = [
   '0-10,000 mi', '10,001-20,000 mi', '20,001-30,000 mi', '30,001-40,000 mi', '40,001-50,000 mi', '50,001-60,000 mi', '60,001-70,000 mi', '70,001-80,000 mi', '80,001-90,000 mi', '90,001-100,000 mi', '100,001-120,000 mi', '120,001-140,000 mi', '140,001-160,000 mi', '160,001-200,000 mi', '200,000 mi+'
 ];
 
-const Search = (props) => {
-  const [distance, setDistance] = useState('5 Miles from');
+const Search = ({ getCarList }) => {
+  const [distance, setDistance] = useState(distances[0]);
   const [address, setAddress] = useState('');
-  const [manufacturer, setManufacturer] = useState('chevrolet');
+  const [manufacturer, setManufacturer] = useState(manufacturers[0]);
   const [mileageMin, setMileageMin] = useState(0);
   const [mileageMax, setMileageMax] = useState(10000);
 
@@ -31,47 +31,51 @@ const Search = (props) => {
   };
 
   const handleSearchButton = () => {
-    let parsedAddress = parseAddress(address);
-    let parsedDistance = parseDistance(distance);
-    return axios
-      .get('https://maps.googleapis.com/maps/api/geocode/json', {
-        params: {
-          address: parsedAddress,
-          key: GEO_API
-        }
-      })
-      .then(({ data }) => {
-        let coordinates = data.results[0].geometry.location;
-        let { lat, lng } = coordinates;
-        props.getCarList({
-          manufacturer: manufacturer,
-          latitudeMin: lat - 7.5, // 1 = approx. 69 miles
-          latitudeMax: lat + 7.5,
-          longitudeMin: lng - 7.5,
-          longitudeMax: lng + 7.5,
-          mileageMin: mileageMin,
-          mileageMax: mileageMax,
-          distance: parsedDistance
-        });
-      })
-      .catch(err => console.log(err));
+    if (address) {
+      let parsedAddress = parseAddress(address);
+      let parsedDistance = parseDistance(distance);
+      return axios
+        .get('https://maps.googleapis.com/maps/api/geocode/json', {
+          params: {
+            address: parsedAddress,
+            key: GEO_API
+          }
+        })
+        .then(({ data }) => {
+          if (data.results.length) {
+            let coordinates = data.results[0].geometry.location;
+            let { lat, lng } = coordinates;
+            getCarList({
+              manufacturer: manufacturer,
+              latMin: lat - 7.5, // 1 = approx. 69 miles
+              latMax: lat + 7.5,
+              lngMin: lng - 7.5,
+              lngMax: lng + 7.5,
+              mileageMin: mileageMin,
+              mileageMax: mileageMax,
+              latitude: lat,
+              longitude: lng,
+              distance: parsedDistance
+            });
+          }
+        })
+        .catch(err => console.log(err));
+    }
   };
 
   return(
     <React.Fragment>
-      <h3 className="searchByMakeText">Search by Make</h3>
+      <h3 className="searchByMakeText">search by make</h3>
       <select
         className="manufacturersDropdown"
         name="manufacturers"
         onChange={(e) => setManufacturer(e.target.value)}
       >
         {manufacturers.map((manufacturer, idx) => {
-          return (<option
-            value={manufacturer}
-            key={idx}
-          >
-            {manufacturer}
-          </option>);
+          return (
+            <option value={manufacturer} key={idx}
+            >{manufacturer}</option>
+          );
         })}
       </select>
       <select
@@ -80,12 +84,10 @@ const Search = (props) => {
         onChange={(e) => handleMileagesChange(e)}
       >
         {mileages.map((mileage, idx) => {
-          return (<option
-            value={mileage}
-            key={idx}
-          >
-            {mileage}
-          </option>);
+          return (
+            <option value={mileage} key={idx}
+            >{mileage}</option>
+          );
         })}
       </select>
       <select
@@ -94,12 +96,10 @@ const Search = (props) => {
         onChange={(e) => setDistance(e.target.value)}
       >
         {distances.map((distance, idx) => {
-          return (<option
-            value={distance}
-            key={idx}
-          >
-            {distance}
-          </option>)
+          return (
+            <option value={distance} key={idx}
+            >{distance}</option>
+          );
         })}
       </select>
       <input
@@ -112,7 +112,7 @@ const Search = (props) => {
         className="searchButton"
         onClick={handleSearchButton}
       >
-        Search
+        search
       </button>
     </React.Fragment>
   );
