@@ -12,6 +12,7 @@ const App = () => {
   const [zoom, setZoom] = useState(8);
   const [cars, setCars] = useState([]);
   const [clickedCar, setClickedCar] = useState(null);
+  const [favoriteCars, setFavoriteCars] = useState([]);
 
   const getCarList = (car) => {
     return axios
@@ -30,8 +31,15 @@ const App = () => {
     setClickedCar(cars[idx]);
   };
 
+  const addToFavoriteCar = (id) => {
+    if (favoriteCars.every(favoriteCar => favoriteCar.id !== id)) {
+      setFavoriteCars([...favoriteCars, clickedCar]);
+    }
+  }
+
   return(
     <React.Fragment>
+      {console.log(favoriteCars)}
       <div className='nav'>
         <img className='navLogo' src='./main.png' />
         <h1 className='navText'>GoodBuy AutoMart</h1>
@@ -48,7 +56,10 @@ const App = () => {
         </div>
         <div className='col-1-3'>
           <Search getCarList={getCarList} />
-          {clickedCar ? <CarDetails clickedCar={clickedCar} /> : null}
+          {clickedCar ? <CarDetails
+            clickedCar={clickedCar}
+            addToFavoriteCar={addToFavoriteCar}
+          /> : null}
         </div>
       </div>
     </React.Fragment>
