@@ -11,7 +11,7 @@ const CarDetails = ({ clickedCar }) => {
       <img
         className="carImage"
         src={clickedCar.image_url}
-        width="300px"
+        width="350px"
       />
       <div className="carPrice">price:
         <strong className="carPriceBold">

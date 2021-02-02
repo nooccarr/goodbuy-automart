@@ -29,7 +29,6 @@ const App = () => {
           lng: car.longitude
         });
         setCars(data);
-        setFavoriteCars(data); //////////////////// DELETE
       })
       .catch(err => console.log(err));
   };
