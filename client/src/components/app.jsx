@@ -1,17 +1,19 @@
-import React, { useState } from 'react';
-import axios from 'axios';
+import React, { useEffect, useState } from 'react';
 import {
   BrowserRouter as Router,
   Switch,
   Route,
   Link
 } from 'react-router-dom';
+import axios from 'axios';
+import ls from 'local-storage';
 import Home from './home.jsx';
 import Favorites from './favorites.jsx';
 
 const defaultCoordinates = { lat: 40.7282, lng: -73.7949 };
 
 const App = () => {
+  // myStorage = window.localStorage;
   const [defaultCenter, setDefaultCenter] = useState(defaultCoordinates);
   const [center, setCenter] = useState(defaultCoordinates);
   const [zoom, setZoom] = useState(8);
@@ -19,6 +21,10 @@ const App = () => {
   const [clickedCar, setClickedCar] = useState(null);
   const [favoriteCars, setFavoriteCars] = useState([]);
   const [clickedFavorite, setClickedFavorite] = useState(false);
+
+  useEffect(() => {
+    setFavoriteCars(ls.get('favoriteCars') || []);
+  }, []);
 
   const getCarList = (car) => {
     return axios
@@ -41,16 +47,19 @@ const App = () => {
   const addToFavoriteCar = () => {
     setClickedFavorite(true);
     if (favoriteCars.every(favoriteCar => favoriteCar.id !== clickedCar.id)) {
-      setFavoriteCars([...favoriteCars, clickedCar]);
+      let favorites = [...favoriteCars, clickedCar];
+      setFavoriteCars(favorites);
+      ls.set('favoriteCars', favorites);
     }
   };
 
   const removeFromFavorites = (id) => {
-    let favoriteCarsCopy = favoriteCars.slice();
     for (let i = 0; i < favoriteCars.length; i++) {
       if (favoriteCars[i].id === id) {
+        let favoriteCarsCopy = favoriteCars.slice();
         favoriteCarsCopy.splice(i, 1);
         setFavoriteCars(favoriteCarsCopy);
+        ls.set('favoriteCars', favoriteCarsCopy);
       }
     }
   };
@@ -115,4 +124,3 @@ export default App;
 // -load: instance
 
 // implement google direction API
-// create favorite (routing for favorite)
