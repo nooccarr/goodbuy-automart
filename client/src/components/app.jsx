@@ -43,7 +43,17 @@ const App = () => {
     if (favoriteCars.every(favoriteCar => favoriteCar.id !== clickedCar.id)) {
       setFavoriteCars([...favoriteCars, clickedCar]);
     }
-  }
+  };
+
+  const removeFromFavorites = (id) => {
+    let favoriteCarsCopy = favoriteCars.slice();
+    for (let i = 0; i < favoriteCars.length; i++) {
+      if (favoriteCars[i].id === id) {
+        favoriteCarsCopy.splice(i, 1);
+        setFavoriteCars(favoriteCarsCopy);
+      }
+    }
+  };
 
   return(
     <React.Fragment>
@@ -64,6 +74,7 @@ const App = () => {
               <Link
                 to="/favorites"
                 className='navListItem'
+                onClick={() => setClickedFavorite(false)}
               >Favorites</Link>
             </li>
           </ul>
@@ -72,6 +83,7 @@ const App = () => {
               <Favorites
                 favoriteCars={favoriteCars}
                 clickedCar={clickedCar}
+                removeFromFavorites={removeFromFavorites}
               />
             </Route>
             <Route path="/">

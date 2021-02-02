@@ -1,11 +1,15 @@
 import React from 'react';
 import moment from 'moment';
 
-const CarDetails = ({ clickedCar }) => {
+const CarDetails = ({ clickedCar, isFavorites, removeFromFavorites }) => {
   let momentAgo = moment(clickedCar.posting_date, 'YYYY-MM-DD').fromNow();
 
   return (
     <div className="carDetailsContainer">
+      {isFavorites ? <button
+        onClick={() => removeFromFavorites(clickedCar.id)}
+        className="removeFavoriteCar"
+      >remove</button> : null}
       <div className="postedDate">Posted {momentAgo}</div>
       <h3 className="carModelAndYear">{clickedCar.year} {clickedCar.model}</h3>
       <img

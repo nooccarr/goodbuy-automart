@@ -63,7 +63,7 @@ ol, ul {
 }
 
 .navList {
-  background-color: #aebaf5;
+  background-color:#b9bed8;
   height: 30px;
   padding-top: 8px;
   border: 2px solid white;
@@ -79,7 +79,8 @@ ol, ul {
 }
 
 .navListItem:hover {
-  color: #ab57fd;
+  text-decoration: underline;
+  font-weight: 900;
 }
 
 .col-2-3 {
@@ -261,4 +262,17 @@ ol, ul {
   width: 350px;
   display: inline-block;
   vertical-align: top;
+}
+
+.removeFavoriteCar {
+  margin: 20px 0;
+  border: 2px solid #7284da;
+  border-radius: 5px;
+  background-color: #7284da;
+  color: white;
+  padding: 10px;
+  font: 500 14px "Helvetica Neue", Helvetica, Arial, sans-serif;
+  cursor: pointer;
+  text-transform: capitalize;
+  width: 350px;
 }

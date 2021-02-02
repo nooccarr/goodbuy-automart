@@ -2,7 +2,7 @@ import React from 'react';
 import CarDetails from './carDetails.jsx';
 
 
-const Favorites = ({ favoriteCars, clickedCar }) => (
+const Favorites = ({ favoriteCars, clickedCar, isFavorites, removeFromFavorites }) => (
   <div className='favoriteCarsContainer'>
     {(() => {
       if (!favoriteCars.length) {
@@ -14,7 +14,12 @@ const Favorites = ({ favoriteCars, clickedCar }) => (
       } else {
         return (
           favoriteCars.map((favoriteCar, i) => (
-            <CarDetails key={i} clickedCar={favoriteCar} />
+            <CarDetails
+              key={i}
+              clickedCar={favoriteCar}
+              isFavorites='true'
+              removeFromFavorites={removeFromFavorites}
+            />
           ))
         );
       }
