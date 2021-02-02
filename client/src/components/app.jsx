@@ -13,7 +13,6 @@ import Favorites from './favorites.jsx';
 const defaultCoordinates = { lat: 40.7282, lng: -73.7949 };
 
 const App = () => {
-  // myStorage = window.localStorage;
   const [defaultCenter, setDefaultCenter] = useState(defaultCoordinates);
   const [center, setCenter] = useState(defaultCoordinates);
   const [zoom, setZoom] = useState(8);
@@ -75,27 +74,27 @@ const App = () => {
           <ul className='navList'>
             <li>
               <Link
-                to="/"
+                to='/'
                 className='navListItem'
               >Home</Link>
             </li>
             <li>
               <Link
-                to="/favorites"
+                to='/favorites'
                 className='navListItem'
                 onClick={() => setClickedFavorite(false)}
               >Favorites</Link>
             </li>
           </ul>
           <Switch>
-            <Route path="/favorites">
+            <Route path='/favorites'>
               <Favorites
                 favoriteCars={favoriteCars}
                 clickedCar={clickedCar}
                 removeFromFavorites={removeFromFavorites}
               />
             </Route>
-            <Route path="/">
+            <Route path='/'>
               <Home
                 defaultCenter={defaultCenter}
                 zoom={zoom}

@@ -103,8 +103,9 @@ ol, ul {
 }
 
 .carPositionOnMap {
-  position: 'absolute';
-  transform: 'translate(-50%, -50%)';
+  position: absolute;
+  transform: translate(-50%, -50%);
+  width: 25px;
 }
 
 .searchByMakeText {

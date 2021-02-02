@@ -2,7 +2,7 @@ import React from 'react';
 import CarDetails from './carDetails.jsx';
 
 
-const Favorites = ({ favoriteCars, clickedCar, isFavorites, removeFromFavorites }) => (
+const Favorites = ({ favoriteCars, clickedCar, removeFromFavorites }) => (
   <div className='favoriteCarsContainer'>
     {(() => {
       if (!favoriteCars.length) {

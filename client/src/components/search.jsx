@@ -65,10 +65,10 @@ const Search = ({ getCarList }) => {
 
   return(
     <React.Fragment>
-      <h3 className="searchByMakeText">search by make</h3>
+      <h3 className='searchByMakeText'>search by make</h3>
       <select
-        className="manufacturersDropdown"
-        name="manufacturers"
+        className='manufacturersDropdown'
+        name='manufacturers'
         onChange={(e) => setManufacturer(e.target.value)}
       >
         {manufacturers.map((manufacturer, idx) => {
@@ -79,8 +79,8 @@ const Search = ({ getCarList }) => {
         })}
       </select>
       <select
-        className="mileagesDropdown"
-        name="mileage"
+        className='mileagesDropdown'
+        name='mileage'
         onChange={(e) => handleMileagesChange(e)}
       >
         {mileages.map((mileage, idx) => {
@@ -91,8 +91,8 @@ const Search = ({ getCarList }) => {
         })}
       </select>
       <select
-        className="distancesDropdown"
-        name="distance"
+        className='distancesDropdown'
+        name='distance'
         onChange={(e) => setDistance(e.target.value)}
       >
         {distances.map((distance, idx) => {
@@ -103,13 +103,13 @@ const Search = ({ getCarList }) => {
         })}
       </select>
       <input
-        className="addressBar"
-        type="text"
+        className='addressBar'
+        type='text'
         value={address}
         onChange={(e) => setAddress(e.target.value)}
       />
       <button
-        className="searchButton"
+        className='searchButton'
         onClick={handleSearchButton}
       >
         search

@@ -13,7 +13,6 @@ const Map = ({ defaultCenter, zoom, center, cars, getClickedCar }) => (
     >
       {cars.map((car, idx) => (
         <Car
-          className='carPositionOnMap'
           lat={car.latitude}
           lng={car.longitude}
           key={idx}
@@ -24,7 +23,7 @@ const Map = ({ defaultCenter, zoom, center, cars, getClickedCar }) => (
 );
 
 const Car = (props) => (
-  <img src="./car.png" width="25px" />
+  <img className='carPositionOnMap' src='./car.png' />
 )
 
 export default Map;
