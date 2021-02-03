@@ -80,7 +80,6 @@ ol, ul {
 
 .navListItem:hover {
   text-decoration: underline;
-  font-weight: 900;
 }
 
 .col-2-3 {
@@ -104,7 +103,9 @@ ol, ul {
 
 .carPositionOnMap {
   position: absolute;
-  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
   width: 25px;
 }
 
@@ -276,4 +277,10 @@ ol, ul {
   cursor: pointer;
   text-transform: capitalize;
   width: 350px;
+}
+
+.searchButton:hover,
+.addToFavorite:hover,
+.removeFavoriteCar:hover {
+  opacity: 0.8;
 }

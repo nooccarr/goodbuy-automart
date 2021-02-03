@@ -118,8 +118,8 @@ export default App;
 
 // TODO:
 // deploy on heroku
-// -create an instance
-// -transform: add index to schema.sql
-// -load: instance
-
 // implement google direction API
+
+// implemented local storage to persist user data across browser sessions
+//
+// used ETL process to create a data
