@@ -121,5 +121,5 @@ export default App;
 // implement google direction API
 
 // implemented local storage to persist user data across browser sessions
-//
-// used ETL process to create a data
+// leveraged react router to navigate to home and favorites section
+// used template engine to create custom 404 page
