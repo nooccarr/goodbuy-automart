@@ -16,6 +16,7 @@ app.get('/favorites', (req, res) => {
 
 app.set('view engine', 'pug')
 app.use((req, res) => {
+  // res.status(404).render('404');
   res.status(404).render('404');
 });
 

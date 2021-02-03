@@ -5,5 +5,7 @@ package-lock.json
 bundle.js
 googleConfig.js
 
+index.pug
+
 vehicles.csv
 cleanedVehicles.csv
