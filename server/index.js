@@ -3,13 +3,14 @@ const compression = require('compression');
 const bodyParser = require('body-parser');
 const router = require('./routes.js');
 const db = require('../database/index.js');
-const port = 3000;
+const PORT = process.env.PORT || 4000;
 
 const app = express();
 
 app.use(compression());
 app.use(bodyParser.json());
 app.use(express.static('./client/dist'));
+// app.use(express.static('./client/dist', { maxAge: '1d' }));
 app.use('/', router);
 
 app.get('/favorites', (req, res) => {
@@ -21,4 +22,4 @@ app.use((req, res) => {
   res.status(404).render('404');
 });
 
-app.listen(port, () => console.log(`Listening to port ${port}`));
+app.listen(PORT, () => console.log(`Listening to port ${PORT}`));

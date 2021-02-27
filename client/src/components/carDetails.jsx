@@ -1,8 +1,13 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import moment from 'moment';
 
 const CarDetails = ({ clickedCar, isFavorites, removeFromFavorites }) => {
   let momentAgo = moment(clickedCar.posting_date, 'YYYY-MM-DD').fromNow();
+  const [carImage, setCarImage] = useState(clickedCar.image_url);
+
+  useEffect(() => (
+    setCarImage(clickedCar.image_url)
+  ), [clickedCar])
 
   return (
     <div className='carDetailsContainer'>
@@ -14,7 +19,8 @@ const CarDetails = ({ clickedCar, isFavorites, removeFromFavorites }) => {
       <h3 className='carModelAndYear'>{clickedCar.year} {clickedCar.model}</h3>
       <img
         className='carImage'
-        src={clickedCar.image_url}
+        src={carImage}
+        onError={() => setCarImage('/img/unavailable.jpg')}
         width='350px'
       />
       <div className='carPrice'>price:
