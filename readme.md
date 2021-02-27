@@ -22,10 +22,6 @@ To run node server:
 npm start
 ```
 
-## Running
-
-Open `client/dist/index.html` in your browser
-
 ## Tech Stack
 * [React](https://reactjs.org)
 * [Node](https://nodejs.org/en)
@@ -37,3 +33,7 @@ Open `client/dist/index.html` in your browser
 The search cars section is consisting of the map component to the left, and the search component on the right. The map part displays the location of used cars available as markers. The search part allows the user to search and sort cars by options. The details component under the search portion allows the user to see selected car details.
 
 ![GoodBuy AutoMart Page Demo](readme_assets/main.gif)
+
+## Running
+
+Open [GoodBuy AutoMart](https://goodbuy-automart.herokuapp.com) in the browser.
