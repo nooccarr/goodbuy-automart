@@ -60,6 +60,7 @@ ol, ul {
 .navLogo {
   margin-right: 15px;
   width: 90px;
+  height: auto;
 }
 
 .navList {
@@ -156,7 +157,8 @@ ol, ul {
 
 .addressBar {
   border: 1px solid lightgray;
-  width: 235px;
+  padding-left: 5px;
+  width: 232px;
   height: 36px;
   font: 400 11px "Helvetica Neue", Helvetica, Arial, sans-serif;
   color: gray;

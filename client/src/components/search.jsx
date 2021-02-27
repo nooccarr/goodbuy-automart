@@ -65,7 +65,7 @@ const Search = ({ getCarList }) => {
 
   return(
     <React.Fragment>
-      <h3 className='searchByMakeText'>search by make</h3>
+      <h1 className='searchByMakeText'>search by make</h1>
       <select
         className='manufacturersDropdown'
         name='manufacturers'
@@ -106,6 +106,7 @@ const Search = ({ getCarList }) => {
         className='addressBar'
         type='text'
         value={address}
+        placeholder='Address · City/State · ZIP Code'
         onChange={(e) => setAddress(e.target.value)}
       />
       <button

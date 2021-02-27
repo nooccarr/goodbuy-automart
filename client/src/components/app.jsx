@@ -66,7 +66,7 @@ const App = () => {
   return(
     <React.Fragment>
       <div className='nav'>
-        <img className='navLogo' src='/img/main.png' />
+        <img className='navLogo' src='/img/main.png' alt="main"/>
         <h1 className='navText'>GoodBuy AutoMart</h1>
       </div>
       <Router>
@@ -117,13 +117,4 @@ const App = () => {
 export default App;
 
 // TODO:
-// deploy on heroku
 // server side rendering
-
-// implement google direction API
-
-// implemented local storage to persist user data across browser sessions
-// leveraged react router to navigate home and favorites section
-// used template engine to create custom 404 page
-// utilized flex box for adapting responsive web design
-// built reusable component to use across the application

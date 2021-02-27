@@ -45,6 +45,7 @@ body {
   background: url('/img/text.png');
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  background-clip: text;
   background-size: cover;
   background-position: center;
 }
