@@ -27,9 +27,9 @@ const config = {
     new webpack.ProvidePlugin({
       process: 'process/browser',
     }),
-    new webpack.DefinePlugin({
-      'process.env.NODE_ENV': JSON.stringify('production')
-    })
+    // new webpack.DefinePlugin({
+    //   'process.env.NODE_ENV': JSON.stringify('production')
+    // })
   ],
 }
 
