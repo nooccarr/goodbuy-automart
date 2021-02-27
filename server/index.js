@@ -14,9 +14,9 @@ app.use(bodyParser.json());
 if (process.env.NODE_ENV === 'production') {
   // app.use(express.static('client/dist', { maxAge: '1d' }));
   app.use(express.static('client/dist'));
-  app.get('/', (req, res) => {
-    res.sendFile(path.resolve(__dirname, 'client', 'dist', 'index.html'))
-  })
+  // app.get('/', (req, res) => {
+  //   res.sendFile(path.resolve(__dirname, 'client', 'dist', 'index.html'))
+  // })
 }
 // app.use(express.static('client/dist'));
 
