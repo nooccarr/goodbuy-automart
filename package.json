@@ -13,10 +13,8 @@
     "clean": "rm client/dist/bundle.js",
     "build-dev": "webpack -d --mode development --watch",
     "build-prod": "webpack -p --mode production",
-    "build": "react-scripts build",
     "start": "node server/index.js",
-    "postinstall": "webpack",
-    "heroku-postbuild": "npm install && npm run build"
+    "heroku-postbuild": "npm install && npm run build-prod"
   },
   "dependencies": {
     "axios": "^0.21.0",
