@@ -3,8 +3,8 @@ import axios from 'axios';
 import parseAddress from '../../utils/parseAddress.js';
 import parseDistance from '../../utils/parseDistance.js';
 import getMileageMinAndMax from '../../utils/getMileageMinAndMax.js';
-// import { GEO_API } from '../../utils/googleConfigDev.js';
-import { GEO_API } from '../../utils/googleConfigProd.js';
+// import { geoAPI } from '../../utils/googleConfigDev.js';
+import { geoAPI } from '../../utils/googleConfigProd.js';
 
 const distances = [
   '5 Miles from', '10 Miles from', '20 Miles from', '30 Miles from', '40 Miles from', '60 Miles from', '100 Miles from', '150 Miles from', '250 Miles from', '500 Miles from'
@@ -39,7 +39,7 @@ const Search = ({ getCarList }) => {
         .get('https://maps.googleapis.com/maps/api/geocode/json', {
           params: {
             address: parsedAddress,
-            key: GEO_API
+            key: geoAPI
           }
         })
         .then(({ data }) => {
