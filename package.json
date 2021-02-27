@@ -13,8 +13,8 @@
     "clean": "rm client/dist/bundle.js",
     "build-dev": "webpack -d --mode development --watch",
     "build-prod": "webpack -p --mode production",
-    "start": "node server/index.js --watch",
-    "postinstall": "webpack -p --mode production"
+    "start": "node server/index.js",
+    "postinstall": "webpack"
   },
   "dependencies": {
     "axios": "^0.21.0",
