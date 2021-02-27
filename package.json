@@ -14,8 +14,7 @@
     "build-dev": "webpack -d --mode development --watch",
     "build-prod": "webpack -p --mode production",
     "start": "nodemon server/index.js --watch",
-    "postinstall": "webpack -p --mode production",
-    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix mvp && npm run build --prefix mvp"
+    "postinstall": "webpack -p --mode production"
   },
   "dependencies": {
     "axios": "^0.21.0",
