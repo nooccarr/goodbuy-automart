@@ -1,17 +1,15 @@
 const webpack = require('webpack');
 const path = require('path'); // to get the current path
-const dotenv = require('dotenv');
+// const dotenv = require('dotenv');
 
-// call dotenv and it will return an Object with a parsed key
-const env = dotenv.config().parsed || {};
-env['TEST'] = 'come on!';
-env['REACT_APP_TEST'] = 'come!!';
+// // call dotenv and it will return an Object with a parsed key
+// const env = dotenv.config().parsed || {};
 
-// reduce it to a nice object, the same as before
-const envKeys = Object.keys(env).reduce((prev, next) => {
-  prev[`process.env.${next}`] = JSON.stringify(env[next]);
-  return prev;
-}, {});
+// // reduce it to a nice object, the same as before
+// const envKeys = Object.keys(env).reduce((prev, next) => {
+//   prev[`process.env.${next}`] = JSON.stringify(env[next]);
+//   return prev;
+// }, {});
 
 const config = {
   mode: 'production',
@@ -35,13 +33,13 @@ const config = {
       '.jsx'
     ]
   },
-  plugins: [
-    // do "npm install process" before running the build
-    new webpack.ProvidePlugin({
-      process: 'process/browser',
-    }),
-    new webpack.DefinePlugin(envKeys)
-  ],
+  // plugins: [
+  //   // do "npm install process" before running the build
+  //   new webpack.ProvidePlugin({
+  //     process: 'process/browser',
+  //   }),
+  //   new webpack.DefinePlugin(envKeys)
+  // ],
 }
 
 module.exports = config;
