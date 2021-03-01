@@ -15,7 +15,7 @@
     "build-prod": "webpack -p --mode production",
     "start": "node server/index.js",
     "start-dev": "nodemon server/index.js --watch",
-    "heroku-postbuild": "npm install && npm run build-prod"
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install && npm run build-prod"
   },
   "dependencies": {
     "@babel/core": "^7.12.10",
