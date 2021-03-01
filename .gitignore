@@ -11,4 +11,4 @@ index.pug
 vehicles.csv
 cleanedVehicles.csv
 
-config.env
+.env

@@ -2,7 +2,12 @@ const mysql = require('mysql');
 let mysqlConfig;
 
 if (process.env.NODE_ENV === 'production') {
-  mysqlConfig = process.env.MYSQL;
+  mysqlConfig = {
+    host: process.env.HOST,
+    user: process.env.USER,
+    password: process.env.PASSWORD,
+    database: process.env.DATABASE
+  };
 } else {
   mysqlConfig = require('./mysqlConfig.js');
 }
