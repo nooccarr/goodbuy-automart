@@ -33,17 +33,17 @@ const config = {
       '.jsx'
     ]
   },
-  plugins: [
+  // plugins: [
     // do "npm install process" before running the build
-    new webpack.ProvidePlugin({
-      process: 'process/browser',
-    }),
+    // new webpack.ProvidePlugin({
+    //   process: 'process/browser',
+    // }),
     // new webpack.DefinePlugin(envKeys)
 
     // new webpack.DefinePlugin({
     //   'process.env.TEST': JSON.stringify('TESTESTESTST')
     // })
-  ],
+  // ],
 }
 
 module.exports = config;
