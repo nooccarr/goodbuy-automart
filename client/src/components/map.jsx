@@ -1,13 +1,12 @@
 import React from 'react';
 import GoogleMapReact from 'google-map-react';
-// import { mapAPI } from '../../utils/googleConfigDev.js';
-import { mapAPI } from '../../utils/googleConfigProd.js';
+// import { mapAPI } from '../../utils/googleConfig.js';
 
 const Map = ({ defaultCenter, zoom, center, cars, getClickedCar }) => {
-  console.log('MAPAPI', mapAPI.slice(0, 10));
   return (<div className='mapContainer'>
     <GoogleMapReact
-      bootstrapURLKeys={{ key: mapAPI, language: 'en' }}
+      // bootstrapURLKeys={{ key: mapAPI, language: 'en' }}
+      bootstrapURLKeys={{ key: process.env.MAP_API, language: 'en' }}
       defaultCenter={defaultCenter}
       defaultZoom={zoom}
       center={center}

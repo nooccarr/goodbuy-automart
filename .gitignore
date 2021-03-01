@@ -3,10 +3,12 @@ node_modules
 .DS_Store
 package-lock.json
 bundle.js
-googleConfigDev.js
-mysqlConfigDev.js
+googleConfig.js
+mysqlConfig.js
 
 index.pug
 
 vehicles.csv
 cleanedVehicles.csv
+
+config.env

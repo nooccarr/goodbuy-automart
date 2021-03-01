@@ -2,9 +2,9 @@ const mysql = require('mysql');
 let mysqlConfig;
 
 if (process.env.NODE_ENV === 'production') {
-  mysqlConfig = require('./mysqlConfigProd.js');
+  mysqlConfig = process.env.MYSQL;
 } else {
-  mysqlConfig = require('./mysqlConfigDev.js');
+  mysqlConfig = require('./mysqlConfig.js');
 }
 
 const db = mysql.createConnection(mysqlConfig);
