@@ -1,6 +1,6 @@
 const webpack = require('webpack');
-const dotenv = require('dotenv');
 const path = require('path');
+// const dotenv = require('dotenv');
 
 // // call dotenv and it will return an Object with a parsed key
 // const env = dotenv.config().parsed;

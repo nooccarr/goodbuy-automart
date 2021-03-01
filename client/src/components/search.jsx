@@ -66,7 +66,7 @@ const Search = ({ getCarList }) => {
 
   return(
     <React.Fragment>
-      {process.env.NODE_ENV === 'production' ? console.log('production HOST', process.env.HOST) : null}
+      {process.env.NODE_ENV === 'production' ? console.log('MAP', process.env.MAP_API.slice(0, 10)) : null}
       <h1 className='searchByMakeText'>search by make</h1>
       <select
         className='manufacturersDropdown'
