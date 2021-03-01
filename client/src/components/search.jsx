@@ -4,7 +4,6 @@ import parseAddress from '../../utils/parseAddress.js';
 import parseDistance from '../../utils/parseDistance.js';
 import getMileageMinAndMax from '../../utils/getMileageMinAndMax.js';
 // import { geoAPI } from '../../utils/googleConfig.js';
-import {} from 'dotenv/config'
 
 const distances = [
   '5 Miles from', '10 Miles from', '20 Miles from', '30 Miles from', '40 Miles from', '60 Miles from', '100 Miles from', '150 Miles from', '250 Miles from', '500 Miles from'
@@ -67,8 +66,10 @@ const Search = ({ getCarList }) => {
 
   return(
     <React.Fragment>
-      {process.env.NODE_ENV === 'production' ? console.log('TEST', process.env.TEST) : null}
-      {process.env.NODE_ENV === 'production' ? console.log('REACT_APP_TEST', process.env.REACT_APP_TEST) : null}
+      {process.env.NODE_ENV === 'production' ? console.log('PROD_TEST', process.env.TEST) : null}
+      {process.env.NODE_ENV === 'production' ? console.log('PROD_REACT_APP_TEST', process.env.REACT_APP_TEST) : null}
+      {process.env.NODE_ENV !== 'production' ? console.log('DEV_TEST', process.env.TEST) : null}
+      {process.env.NODE_ENV !== 'production' ? console.log('DEV_REACT_APP_TEST', process.env.REACT_APP_TEST) : null}
       <h1 className='searchByMakeText'>search by make</h1>
       <select
         className='manufacturersDropdown'
