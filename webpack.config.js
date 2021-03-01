@@ -40,9 +40,9 @@ const config = {
     }),
     // new webpack.DefinePlugin(envKeys)
 
-    new webpack.DefinePlugin({
-      'process.env.TEST': JSON.stringify('TESTESTESTST')
-    })
+    // new webpack.DefinePlugin({
+    //   'process.env.TEST': JSON.stringify('TESTESTESTST')
+    // })
   ],
 }
 
