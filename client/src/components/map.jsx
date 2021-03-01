@@ -6,7 +6,7 @@ const Map = ({ defaultCenter, zoom, center, cars, getClickedCar }) => (
   <div className='mapContainer'>
     <GoogleMapReact
       // bootstrapURLKeys={{ key: mapAPI, language: 'en' }}
-      bootstrapURLKeys={{ key: process.env.REACT_APP_MAP_API, language: 'en' }}
+      bootstrapURLKeys={{ key: process.env.MAP_API, language: 'en' }}
       defaultCenter={defaultCenter}
       defaultZoom={zoom}
       center={center}
