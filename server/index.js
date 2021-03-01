@@ -4,7 +4,7 @@ const bodyParser = require('body-parser');
 const router = require('./routes.js');
 const db = require('../database/index.js');
 const PORT = process.env.PORT || 3000;
-const path = require('path');
+// const path = require('path');
 
 const app = express();
 
@@ -18,7 +18,7 @@ app.get('/favorites', (req, res) => {
   res.redirect('/');
 });
 
-app.set('view engine', 'pug')
+app.set('view engine', 'pug');
 app.use((req, res) => {
   res.status(404).render('404');
 });
