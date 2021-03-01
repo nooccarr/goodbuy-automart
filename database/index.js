@@ -9,7 +9,7 @@ if (process.env.NODE_ENV === 'production') {
     password: process.env.PASSWORD,
     database: process.env.DATABASE
   };
-  // console.log('MYSQL: ', mysqlConfig)
+  // console.log('MYSQL: ', mysqlConfig);
 } else {
   mysqlConfig = require('./mysqlConfig.js');
 }
