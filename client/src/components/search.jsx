@@ -35,6 +35,7 @@ const Search = ({ getCarList }) => {
     if (address) {
       let parsedAddress = parseAddress(address);
       let parsedDistance = parseDistance(distance);
+      console.log('GEOAPI', geoAPI.slice(0, 10));
       return axios
         .get('https://maps.googleapis.com/maps/api/geocode/json', {
           params: {
@@ -107,7 +108,7 @@ const Search = ({ getCarList }) => {
         className='addressBar'
         type='text'
         value={address}
-        placeholder='Address · City/State · ZIP Code'
+        placeholder='Enter the address, city, state or zip code'
         onChange={(e) => setAddress(e.target.value)}
       />
       <button

@@ -24,6 +24,7 @@ const config = {
     ]
   },
   plugins: [
+    // do "npm install process" before running the build
     new webpack.ProvidePlugin({
       process: 'process/browser',
     }),

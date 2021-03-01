@@ -13,7 +13,7 @@
     "clean": "rm client/dist/bundle.js",
     "build-dev": "webpack -d --mode development --watch",
     "build-prod": "webpack -p --mode production",
-    "start": "node server/index.js",
+    "start": "nodemon server/index.js --watch",
     "heroku-postbuild": "npm install && npm run build-prod"
   },
   "dependencies": {
