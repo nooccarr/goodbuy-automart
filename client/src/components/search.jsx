@@ -4,6 +4,7 @@ import parseAddress from '../../utils/parseAddress.js';
 import parseDistance from '../../utils/parseDistance.js';
 import getMileageMinAndMax from '../../utils/getMileageMinAndMax.js';
 // import { geoAPI } from '../../utils/googleConfig.js';
+import {} from 'dotenv/config'
 
 const distances = [
   '5 Miles from', '10 Miles from', '20 Miles from', '30 Miles from', '40 Miles from', '60 Miles from', '100 Miles from', '150 Miles from', '250 Miles from', '500 Miles from'

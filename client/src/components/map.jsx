@@ -1,6 +1,7 @@
 import React from 'react';
 import GoogleMapReact from 'google-map-react';
 // import { mapAPI } from '../../utils/googleConfig.js';
+import {} from 'dotenv/config'
 
 const Map = ({ defaultCenter, zoom, center, cars, getClickedCar }) => (
   <div className='mapContainer'>
