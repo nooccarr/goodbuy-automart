@@ -1,5 +1,6 @@
 const webpack = require('webpack');
 const path = require('path'); // to get the current path
+const Dotenv = require('dotenv-webpack');
 // const dotenv = require('dotenv');
 
 // // call dotenv and it will return an Object with a parsed key
@@ -33,17 +34,18 @@ const config = {
       '.jsx'
     ]
   },
-  // plugins: [
+  plugins: [
     // do "npm install process" before running the build
-    // new webpack.ProvidePlugin({
-    //   process: 'process/browser',
-    // }),
+    new webpack.ProvidePlugin({
+      process: 'process/browser',
+    }),
+    new Dotenv()
     // new webpack.DefinePlugin(envKeys)
 
     // new webpack.DefinePlugin({
     //   'process.env.TEST': JSON.stringify('TESTESTESTST')
     // })
-  // ],
+  ],
 }
 
 module.exports = config;
