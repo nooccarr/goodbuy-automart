@@ -38,7 +38,7 @@ const config = {
     new webpack.ProvidePlugin({
       process: 'process/browser',
     }),
-  //   new webpack.DefinePlugin(envKeys)
+    // new webpack.DefinePlugin(envKeys)
 
     new webpack.DefinePlugin({
       'process.env.TEST': JSON.stringify('TESTESTESTST')
