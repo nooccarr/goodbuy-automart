@@ -4,7 +4,11 @@ const path = require('path'); // to get the current path
 const dotenv = require('dotenv-defaults');
 
 // call dotenv and it will return an Object with a parsed key
-const env = dotenv.config().parsed;
+const env = dotenv.config({
+  path: './.env',
+  encoding: 'utf8',
+  defaults: './.env.defaults'
+}).parsed;
 
 // reduce it to a nice object, the same as before
 const envKeys = Object.keys(env).reduce((prev, next) => {
