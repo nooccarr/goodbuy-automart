@@ -40,7 +40,7 @@ const config = {
     new webpack.ProvidePlugin({
       process: 'process/browser',
     }),
-    new Dotenv()
+    new Dotenv(path: './.env.defaults')
     // new webpack.DefinePlugin(envKeys)
 
     // new webpack.DefinePlugin({
