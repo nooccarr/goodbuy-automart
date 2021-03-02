@@ -64,7 +64,6 @@ const Search = ({ getCarList }) => {
 
   return(
     <React.Fragment>
-      {console.log('HOST', process.env.HOST)}
       <h1 className='searchByMakeText'>search by make</h1>
       <select
         className='manufacturersDropdown'

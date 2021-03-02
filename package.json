@@ -13,6 +13,7 @@
     "clean": "rm client/dist/bundle.js",
     "build-dev": "webpack -d --mode development --watch",
     "build": "webpack --config webpack.prod.js",
+    "dev": "env-cmd ./.env node server/index.js",
     "start": "node server/index.js",
     "start-dev": "nodemon server/index.js --watch",
     "heroku-postbuild": "npm install && npm run build"
@@ -40,6 +41,7 @@
     "csv-parser": "^3.0.0",
     "csv-writer": "^1.6.0",
     "dotenv": "^8.2.0",
+    "env-cmd": "^10.1.0",
     "nodemon": "^2.0.6",
     "process": "^0.11.10"
   }
