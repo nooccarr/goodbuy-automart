@@ -1,18 +1,11 @@
 const mysql = require('mysql');
 
-let mysqlConfig;
-
-if (process.env.NODE_ENV === 'production') {
-  mysqlConfig = {
-    host: process.env.HOST,
-    user: process.env.USER,
-    password: process.env.PASSWORD,
-    database: process.env.DATABASE
-  };
-  console.log(process.env.HOST)
-} else {
-  mysqlConfig = require('./mysqlConfig.js');
-}
+let mysqlConfig = {
+  host: process.env.HOST,
+  user: process.env.USER,
+  password: process.env.PASSWORD,
+  database: process.env.DATABASE
+};
 
 const db = mysql.createConnection(mysqlConfig);
 
