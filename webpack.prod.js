@@ -24,14 +24,13 @@ const config = {
     ]
   },
   plugins: [
-    // do "npm install process" before running the build
-    new webpack.ProvidePlugin({
-      process: 'process/browser',
-    }),
-    // new Dotenv()
+    // // do "npm install process" before running the build
+    // new webpack.ProvidePlugin({
+    //   process: 'process/browser',
+    // }),
     new webpack.DefinePlugin({
-      'process.env': {},
-    })
+      "process.env": {},
+    }),
   ],
 }
 
