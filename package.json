@@ -24,6 +24,7 @@
     "axios": "^0.21.0",
     "babel-loader": "^8.2.2",
     "compression": "^1.7.4",
+    "dotenv-defaults": "^2.0.1",
     "express": "^4.17.1",
     "google-map-react": "^2.1.9",
     "local-storage": "^2.0.0",

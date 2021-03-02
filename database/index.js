@@ -1,5 +1,6 @@
 // require('dotenv').config();
 const mysql = require('mysql');
+require('dotenv-defaults/config');
 let mysqlConfig;
 
 if (process.env.NODE_ENV === 'production') {

@@ -1,6 +1,7 @@
 const webpack = require('webpack');
 const path = require('path'); // to get the current path
 const Dotenv = require('dotenv-webpack');
+require('dotenv-defaults/config');
 // const dotenv = require('dotenv');
 
 // // call dotenv and it will return an Object with a parsed key
