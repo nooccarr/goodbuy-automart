@@ -1,14 +1,9 @@
 const webpack = require('webpack');
 const path = require('path'); // to get the current path
-// const Dotenv = require('dotenv-webpack');
-const dotenv = require('dotenv-defaults');
+const dotenv = require('dotenv');
 
 // call dotenv and it will return an Object with a parsed key
-const env = dotenv.config({
-  path: './.env',
-  encoding: 'utf8',
-  defaults: './.env.defaults'
-}).parsed;
+const env = dotenv.config().parsed;
 
 // reduce it to a nice object, the same as before
 const envKeys = Object.keys(env).reduce((prev, next) => {
@@ -44,12 +39,7 @@ const config = {
     new webpack.ProvidePlugin({
       process: 'process/browser',
     }),
-    // new Dotenv()
     new webpack.DefinePlugin(envKeys)
-
-    // new webpack.DefinePlugin({
-    //   'process.env.TEST': JSON.stringify('TESTESTESTST')
-    // })
   ],
 }
 

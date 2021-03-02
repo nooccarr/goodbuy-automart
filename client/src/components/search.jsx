@@ -3,7 +3,6 @@ import axios from 'axios';
 import parseAddress from '../../utils/parseAddress.js';
 import parseDistance from '../../utils/parseDistance.js';
 import getMileageMinAndMax from '../../utils/getMileageMinAndMax.js';
-// import { geoAPI } from '../../utils/googleConfig.js';
 
 const distances = [
   '5 Miles from', '10 Miles from', '20 Miles from', '30 Miles from', '40 Miles from', '60 Miles from', '100 Miles from', '150 Miles from', '250 Miles from', '500 Miles from'
@@ -38,7 +37,6 @@ const Search = ({ getCarList }) => {
         .get('https://maps.googleapis.com/maps/api/geocode/json', {
           params: {
             address: parsedAddress,
-            // key: geoAPI
             key: process.env.GEO_API
           }
         })
@@ -66,17 +64,6 @@ const Search = ({ getCarList }) => {
 
   return(
     <React.Fragment>
-      {(() => {
-        if (process.env.NODE_ENV === 'production') {
-          console.log('HOST', process.env.HOST);
-          // console.log('MAP_API', process.env.MAP_API);
-          // console.log('GEO_API', process.env.GEO_API);
-          // console.log('REACT_APP_MAP_API', process.env.REACT_APP_MAP_API);
-          // console.log('REACT_APP_GEO_API', process.env.REACT_APP_GEO_API);
-        } else {
-          null;
-        }
-      })()}
       <h1 className='searchByMakeText'>search by make</h1>
       <select
         className='manufacturersDropdown'

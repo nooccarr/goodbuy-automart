@@ -23,19 +23,11 @@ const config = {
       '.jsx'
     ]
   },
-  // node: {
-  //   fs: 'empty'
-  // },
   plugins: [
     // // do "npm install process" before running the build
     new webpack.ProvidePlugin({
       process: 'process/browser',
     }),
-    // new webpack.DefinePlugin({
-    //   'process.env': {
-    //     'HOST': JSON.stringify(process.env.HOST)
-    //   },
-    // })
     new webpack.EnvironmentPlugin({
       'GEO_API': JSON.stringify(process.env.GEO_API),
       'MAP_API': JSON.stringify(process.env.MAP_API),
