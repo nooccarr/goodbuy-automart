@@ -6,6 +6,7 @@ let mysqlConfig = {
   password: process.env.PASSWORD,
   database: process.env.DATABASE
 };
+console.log(process.env.HOST);
 
 const db = mysql.createConnection(mysqlConfig);
 
