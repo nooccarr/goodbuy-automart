@@ -28,16 +28,21 @@ const config = {
   // },
   plugins: [
     // // do "npm install process" before running the build
-    // new webpack.ProvidePlugin({
-    //   process: 'process/browser',
-    // }),
+    new webpack.ProvidePlugin({
+      process: 'process/browser',
+    }),
     // new webpack.DefinePlugin({
     //   'process.env': {
     //     'HOST': JSON.stringify(process.env.HOST)
     //   },
     // })
     new webpack.EnvironmentPlugin({
-      'HOST': JSON.stringify(process.env.HOST)
+      'GEO_API': JSON.stringify(process.env.GEO_API),
+      'MAP_API': JSON.stringify(process.env.MAP_API),
+      'HOST': JSON.stringify(process.env.HOST),
+      'USER': JSON.stringify(process.env.USER),
+      'PASSWORD': JSON.stringify(process.env.PASSWORD),
+      'DATABASE': JSON.stringify(process.env.DATABASE),
     }),
   ],
 }

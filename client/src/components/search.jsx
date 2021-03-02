@@ -69,10 +69,10 @@ const Search = ({ getCarList }) => {
       {(() => {
         if (process.env.NODE_ENV === 'production') {
           console.log('HOST', process.env.HOST);
-          console.log('MAP_API', process.env.MAP_API);
-          console.log('GEO_API', process.env.GEO_API);
-          console.log('REACT_APP_MAP_API', process.env.REACT_APP_MAP_API);
-          console.log('REACT_APP_GEO_API', process.env.REACT_APP_GEO_API);
+          // console.log('MAP_API', process.env.MAP_API);
+          // console.log('GEO_API', process.env.GEO_API);
+          // console.log('REACT_APP_MAP_API', process.env.REACT_APP_MAP_API);
+          // console.log('REACT_APP_GEO_API', process.env.REACT_APP_GEO_API);
         } else {
           null;
         }
