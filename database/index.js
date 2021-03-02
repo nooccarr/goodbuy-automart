@@ -1,12 +1,18 @@
 const mysql = require('mysql');
+require('dotenv').config();
 
-let mysqlConfig = {
-  host: process.env.HOST,
-  user: process.env.USER,
-  password: process.env.PASSWORD,
-  database: process.env.DATABASE
-};
-console.log(process.env.HOST);
+let mysqlConfig;
+
+if (process.env.NODE_ENV === 'production') {
+  mysqlConfig = {
+    host: process.env.HOST,
+    user: process.env.USER,
+    password: process.env.PASSWORD,
+    database: process.env.DATABASE
+  };
+} else {
+  mysqlConfig = require('./mysqlConfig');
+}
 
 const db = mysql.createConnection(mysqlConfig);
 

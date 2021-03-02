@@ -12,7 +12,6 @@ const envKeys = Object.keys(env).reduce((prev, next) => {
 }, {});
 
 const config = {
-  // mode: 'production',
   mode: 'development',
   entry: './client/src/index.jsx',
   output: {
