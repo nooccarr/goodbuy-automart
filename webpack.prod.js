@@ -23,8 +23,11 @@ const config = {
       '.jsx'
     ]
   },
+  // node: {
+  //   fs: 'empty'
+  // },
   plugins: [
-    // // do "npm install process" before running the build
+    // do "npm install process" before running the build
     new webpack.ProvidePlugin({
       process: 'process/browser',
     }),
