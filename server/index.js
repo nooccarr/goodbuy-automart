@@ -5,6 +5,9 @@ const router = require('./routes.js');
 const db = require('../database/index.js');
 const PORT = process.env.PORT || 3000;
 // const path = require('path');
+if (process.env.NODE_ENV == 'development') {
+  require('dotenv').config({ silent: true });
+}
 
 const app = express();
 
