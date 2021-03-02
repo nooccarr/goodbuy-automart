@@ -66,10 +66,16 @@ const Search = ({ getCarList }) => {
 
   return(
     <React.Fragment>
-      {process.env.NODE_ENV === 'production' ? console.log('PROD_REACT_MAP_API', process.env.REACT_APP_MAP_API) : null}
-      {process.env.NODE_ENV === 'production' ? console.log('PROD_REACT_GEO_TEST', process.env.REACT_APP_GEO_API) : null}
-      {process.env.NODE_ENV !== 'production' ? console.log('DEV_REACT_MAP_API', process.env.REACT_APP_MAP_API) : null}
-      {process.env.NODE_ENV !== 'production' ? console.log('DEV_REACT_GEO_TEST', process.env.REACT_APP_GEO_API) : null}
+      {(() => {
+        if (process.env.NODE_ENV === 'production') {
+          console.log('MAP_API', process.env.MAP_API);
+          console.log('GEO_API', process.env.GEO_API);
+          console.log('REACT_APP_MAP_API', process.env.REACT_APP_MAP_API);
+          console.log('REACT_APP_GEO_API', process.env.REACT_APP_GEO_API);
+        } else {
+          null;
+        }
+      })()}
       <h1 className='searchByMakeText'>search by make</h1>
       <select
         className='manufacturersDropdown'
