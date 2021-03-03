@@ -29,8 +29,8 @@ npm start
 * [MySQL](https://www.mysql.com)
 * [Heroku](https://www.heroku.com)
 
-## Search Cars
-The search cars section is consisting of the map component to the left, and the search component on the right. The map part displays the location of used cars available as markers. The search part allows the user to search and sort cars by options. The details component under the search portion allows the user to see selected car details.
+## Search and Favorites Page
+The Home page is consisting of the navigation component on the top, the map component to the left, and the search component to the right. The navigation section has the option to choose from the Home and Favorites page. The map section displays the location of used cars available as markers. The search section allows the user to search and sort cars by options. The details component under the search portion provides selected car details and a button to add to the Favorites page. The user has the ability to view and remove cars saved on the Favorites page.
 
 ![GoodBuy AutoMart Page Demo](readme_assets/main.gif)
 
