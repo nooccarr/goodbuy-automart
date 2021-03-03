@@ -1,5 +1,4 @@
 const mysql = require('mysql');
-// require('dotenv').config();
 
 let mysqlConfig;
 
@@ -10,8 +9,6 @@ if (process.env.NODE_ENV === 'production') {
     password: process.env.PASSWORD,
     database: process.env.DATABASE
   };
-  console.log('HOST', process.env.HOST)
-  console.log('DATABASE', process.env.HOST)
 } else {
   mysqlConfig = require('./mysqlConfig');
 }
