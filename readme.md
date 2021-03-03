@@ -39,9 +39,9 @@ The Home page is consisting of the navigation component on the top, the map comp
 
 Open [GoodBuy AutoMart](https://goodbuy-automart.herokuapp.com) in the browser.
 
-## Accomplishments
+## Lighthouse Score
 
-* Achieved the average [Lighthouse score](readme_assets/lighthouse.png) of 95.75 for Desktop devices.
+![Lighthouse Score](readme_assets/lighthouse.png)
 
 ## Future Implementations
 
