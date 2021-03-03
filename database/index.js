@@ -4,6 +4,7 @@ let mysqlConfig;
 
 if (process.env.NODE_ENV === 'production') {
   mysqlConfig = {
+    connectionLimit: 10,
     host: process.env.HOST,
     user: process.env.USER,
     password: process.env.PASSWORD,
@@ -13,35 +14,31 @@ if (process.env.NODE_ENV === 'production') {
   mysqlConfig = require('./mysqlConfig');
 }
 
-let db;
+const pool = mysql.createPool(mysqlConfig);
 
-const handleDisconnect = () => {
-  // Recreate the connection, since the old one cannot be reused
-  db = mysql.createConnection(mysqlConfig);
+pool.getConnection((err, connection) => {
+   if (err) {
+    console.log('query connec error!', err);
+   } else {
+    connection.query('select 1 + 1', (err, rows) => {
+     if (err) {
+      console.log(err);
+     }
+     connection.release();
+    });
+   }
+});
 
-  // The server is either down or restarting (takes a while sometimes)
-  db.connect((err) => {
-    // We introduce a delay before attempting to reconnect, to avoid a hot loop, and to allow our node script to process asynchronous requests in the meantime. If you're also serving http, display a 503 error
-    if (err) {
-      console.log('Error when connecting to database: ', err);
-      setTimeout(handleDisconnect, 2000);
-    } else {
-      console.log('Connected!');
-    }
+module.exports = pool;
 
-  });
+// const db = mysql.createConnection(mysqlConfig);
 
-  db.on('error', (err) => {
-    console.log('Database error: ', err);
-    // Connection to the MySQL server is usually lost due to either server restart, or a connnection idle timeout (the wait_timeout server variable configures this)
-    if (err.code === 'PROTOCOL_CONNECTION_LOST') {
-      handleDisconnect();
-    } else {
-      throw err;
-    }
-  });
-}
+// db.connect((err) => {
+//   if (err) {
+//     console.log(err);
+//   } else {
+//     console.log('Connected!');
+//   }
+// });
 
-handleDisconnect();
-
-module.exports = db;
+// module.exports = db;
