@@ -286,3 +286,13 @@ ol, ul {
 .removeFavoriteCar:hover {
   opacity: 0.8;
 }
+
+.manufacturersDropdown:focus,
+.mileagesDropdown:focus,
+.distancesDropdown:focus,
+.addressBar:focus,
+.searchButton:focus,
+.addToFavorite:focus,
+.removeFavoriteCar:focus {
+  outline: none;
+}
