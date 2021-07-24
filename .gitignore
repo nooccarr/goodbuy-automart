@@ -10,4 +10,6 @@ index.pug
 vehicles.csv
 cleanedVehicles.csv
 
+vehiclesDump.sql
+
 .env

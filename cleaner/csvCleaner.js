@@ -5,7 +5,7 @@ const Transform = require('stream').Transform;
 
 const csvStringifier = createCsvStringifier({
   header: [
-    { id: "", title: "id" },
+    { id: "id", title: "id" },
     { id: "price", title: "price" },
     { id: "year", title: "year" },
     { id: "manufacturer", title: "manufacturer" },
@@ -30,22 +30,37 @@ const csvStringifier = createCsvStringifier({
 let readStream = fs.createReadStream('./vehicles.csv');
 let writeStream = fs.createWriteStream('./cleanedVehicles.csv');
 
+let newId = 0;
+let skipChunk = false;
+
 class csvCleaner extends Transform {
   constructor(options) {
     super(options);
   }
 
   _transform(chunk, encoding, next) {
-    const filtered = ['id', 'region', 'region_url', 'url', 'size', 'description', 'state'];
+    const filtered = ['region', 'region_url', 'url', 'size', 'description', 'state'];
+
     for (let key in chunk) {
       if (filtered.indexOf(key) >= 0) {
         delete chunk[key];
+      } else if (key === 'image_url' && chunk[key].length === 0) {
+        skipChunk = true;
+      } else if (key === 'id') {
+        chunk[key] = newId;
       } else if (key === 'cylinders') {
         chunk[key] = chunk[key].split(' ')[0];
       }
     }
-    chunk = csvStringifier.stringifyRecords([chunk]);
-    this.push(chunk);
+
+    if (skipChunk) {
+      skipChunk = false;
+    } else {
+      chunk = csvStringifier.stringifyRecords([chunk]);
+      this.push(chunk);
+      newId++;
+    }
+
     next();
   }
 }
@@ -61,3 +76,5 @@ readStream
   .on('finish', () => {
     console.log('Finished transforming vehicles.csv');
   });
+
+  mysql --host=us-cdbr-east-03.cleardb.com --user=bfe24867b4a76b --password=490b0d60 --reconnect heroku_81ba84f2ce4d9a7
