@@ -1,6 +1,6 @@
 # GoodBuy AutoMart
 
-This application was built to utilize the Google Maps Platform and its various APIs. The primary technologies used are React hooks to render custom styled-components, Express to retrieve data from a custom-built API, CSS for general styling, and MySQL for storing used car listings extracted from Craigslist.
+GoodBuy AutoMart is a user-friendly single-page application designed for searching used car locations on Google Maps. It utilizes the Google Maps Platform and its various APIs. The primary technologies used include React hooks for rendering custom styled-components, Express for retrieving data from a custom-built API, CSS for styling, and MySQL for storing used car listings extracted from Craigslist.
 
 ## Building and Running Environment
 
@@ -31,7 +31,7 @@ npm start-dev
 
 ## Search and Favorites Page
 
-The Home page is consisting of the navigation component on the top, the map component to the left, and the search component to the right. The navigation section has the option to choose from the Home and Favorites page. The map section displays the location of used cars available as markers. The search section allows the user to search and sort cars by options. The details component under the search portion provides selected car details and a button to add to the Favorites page. The user has the ability to view and remove cars saved on the Favorites page.
+The Home page consists of the navigation component at the top, the map component on the left, and the search component on the right. The navigation section offers options to choose between the Home and Favorites pages. The map section displays markers indicating the locations of available used cars. The search section enables users to search and sort cars based on various options. The details component, located below the search section, provides detailed information about the selected car and includes a button to add it to the Favorites page. Users can view and remove cars saved on the Favorites page.
 
 ![GoodBuy AutoMart Page Demo](readme_assets/main.gif)
 
